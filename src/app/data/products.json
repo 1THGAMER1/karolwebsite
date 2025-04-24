@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop XYZ",
+    "description": "Ein leistungsstarker Laptop mit 16 GB RAM und 512 GB SSD.",
+    "price": 999.99,
+    "image": "/images/laptop-xyz.jpg",
+    "category": "Elektronik",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Smartphone ABC",
+    "description": "Ein innovatives Smartphone mit 5G-Unterstützung und einer 48 MP Kamera.",
+    "price": 499.99,
+    "image": "/images/smartphone-abc.jpg",
+    "category": "Elektronik",
+    "rating": 4.7
+  },
+  {
+    "id": 3,
+    "name": "Kaffeemaschine Deluxe",
+    "description": "Eine hochwertige Kaffeemaschine mit automatischem Mahlwerk und integriertem Milchaufschäumer.",
+    "price": 89.99,
+    "image": "/images/kaffeemaschine-deluxe.jpg",
+    "category": "Haushalt",
+    "rating": 4.2
+  },
+  {
+    "id": 4,
+    "name": "Bluetooth Lautsprecher",
+    "description": "Kabelloser Lautsprecher mit ausgezeichnetem Klang und langer Akkulaufzeit.",
+    "price": 69.99,
+    "image": "/images/bluetooth-lautsprecher.jpg",
+    "category": "Elektronik",
+    "rating": 4.3
+  },
+  {
+    "id": 5,
+    "name": "Sneaker Fashion",
+    "description": "Stylische Sneaker aus hochwertigem Leder für Alltag und Sport.",
+    "price": 79.99,
+    "image": "/images/sneaker-fashion.jpg",
+    "category": "Mode",
+    "rating": 4.6
+  }
+]
