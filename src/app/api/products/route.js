@@ -12,5 +12,5 @@ export async function GET() {
     // Antwort zurückgeben
     return new Response(JSON.stringify(products), {
         headers: { "Content-Type": "application/json" },
-    });
+    })
 }
