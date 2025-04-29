@@ -11,7 +11,7 @@ export default function BuyButton() {
         setClicked(true);
         setTimeout(() => {
             router.push("/cart");
-        }, 300);
+        }, 250);
     };
 
     return (

@@ -1,5 +1,5 @@
 import '../../globals.css'
-import Shopnavbar from "@/app/Components/shopnavbar";
+import Shopnavbar from "@/app/components/shopnavbar";
 
 export default function Page(){
     return(

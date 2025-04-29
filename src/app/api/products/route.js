@@ -8,6 +8,7 @@ export async function GET() {
         { id: 3, name: "Produkt 3", price: "30.00€", imgSrc: "/product3.jpg" },
         { id: 4, name: "Produkt 4", price: "50.00€", imgSrc: "/product4.jpg" },
         { id : 5, name: "Produkt 5", price: "50.00€", imgSrc: "/product5.jpg" },
+
     ];
 
     // Antwort zurückgeben

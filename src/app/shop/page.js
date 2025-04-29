@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/Image";
+/* import Image from "next/Image"; */
 import BuyButton from "@/app/components/buybutton.js";
-import Cartbutton from "@/app/Components/cartbutton.js";
-import Shopnavbar from "@/app/Components/shopnavbar";
+import Cartbutton from "@/app/components/cartbutton.js";
+import Shopnavbar from "@/app/components/shopnavbar";
 
 export default function HomePage() {
     const [loading, setLoading] = useState(true);  // Zustand für das Laden
@@ -53,6 +53,7 @@ export default function HomePage() {
                             </div>
                         ))
                         : // Wenn Daten geladen sind, zeige die echten Produkte
+                        /* Am besten bald Benutzung von (bereits importiertem) next/image */
                         products.map((product) => (
                             <div key={product.id} className="bg-white p-6 rounded-lg shadow-lg">
                                 <img src={product.imgSrc} alt={product.name} className="w-full h-64 object-cover mb-4 rounded-lg" />
@@ -63,6 +64,7 @@ export default function HomePage() {
                             </div>
                         ))}
                 </div>
+                <h2 className="text-3xl text-center font-bold mb-12 text-gray-600">Auf Basis deiner bisherigen Suchanfragen</h2>
             </section>
 
             {/* Footer */}
