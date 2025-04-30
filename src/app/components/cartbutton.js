@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-export default function Cartbutton() {
+export default function Cartbutton({ productId }) {
     const [clicked, setClicked] = useState(false);  // Zustand für Klick
     const [quantity, setQuantity] = useState(1);    // Zustand für die Anzahl
     const [addedToCart, setAddedToCart] = useState(false);  // Warenkorb hinzugefügt
@@ -13,9 +13,14 @@ export default function Cartbutton() {
     };
 
     // Funktion für den finalen Klick, um zum Warenkorb hinzuzufügen
-    const handleFinalClick = () => {
+    const handleFinalClick = async () => {
+        await fetch("/api/cart/", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({productId, quantity})
+        })
         setAddedToCart(true);  // Optional: Kann anzeigen, dass das Produkt zum Warenkorb hinzugefügt wurde
-        setClicked(false);     // Button wieder in den Ausgangszustand versetzen
+        setClicked(false);     // Button wieder in den Ausgangszustand versetze
     };
 
     return (

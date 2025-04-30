@@ -59,12 +59,12 @@ export default function HomePage() {
                                 <img src={product.imgSrc} alt={product.name} className="w-full h-64 object-cover mb-4 rounded-lg" />
                                 <h3 className="text-xl font-semibold text-gray-400">{product.name}</h3>
                                 <p className="text-gray-600">{product.price}</p>
-                                <Cartbutton />
+                                <Cartbutton productId = {product.id} />
                                 <BuyButton />
                             </div>
                         ))}
                 </div>
-                <h2 className="text-3xl text-center font-bold mb-12 text-gray-600">Auf Basis deiner bisherigen Suchanfragen</h2>
+                 <h2 className="py-16 text-3xl text-center font-bold mb-12 text-gray-600">Auf Basis deiner bisherigen Suchanfragen</h2>
             </section>
 
             {/* Footer */}

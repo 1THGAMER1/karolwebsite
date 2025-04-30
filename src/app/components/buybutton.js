@@ -10,7 +10,7 @@ export default function BuyButton() {
     const handleClick = () => {
         setClicked(true);
         setTimeout(() => {
-            router.push("/cart");
+            router.push("/shop/cart");
         }, 250);
     };
 
