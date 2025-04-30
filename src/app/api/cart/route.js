@@ -1,4 +1,3 @@
-import { body } from "framer-motion/m";
 import { promises as fs} from "fs"
 import path from "path"
 import {error} from "next/dist/build/output/log";
@@ -23,12 +22,22 @@ export async function POST(request){
     }
 }
 
-export async function GET(){
-    const warenkorb = await fs.readFile(filePath, "utf8");
+export async function GET() {
+    try {
+        const warenkorb = await fs.readFile(filePath, "utf8");
+        const parsed = warenkorb ? JSON.parse(warenkorb) : [];
 
-    console.log("Der derzeit benutzte Pfad lautet: ", filePath);
+        console.log("Der derzeit benutzte Pfad lautet: ", filePath);
 
-    return new Response(JSON.stringify(warenkorb), {status: 200,
-        headers :  { "content-type": "application/json" },
-    })
+        return new Response(JSON.stringify(parsed), {
+            status: 200,
+            headers: {"content-type": "application/json"},
+        })
+    } catch(error) {
+        console.log("Fehler beim lesen des JSONs", error)
+        return new Response(JSON.stringify([]), {
+            status: 500,
+            headers: {"content-type": "application/json"},
+        })
+    }
 }
