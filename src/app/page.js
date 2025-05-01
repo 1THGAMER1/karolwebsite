@@ -8,18 +8,15 @@ export default function Home(){
     return(
         <div>
             <Navbar />
-            <div className="welcome-container">
-                <h1 className="big-welcomer">
-                    <section>
-                        <Suspense fallback={<div>Loading Textrotation...</div>}>
-                            <TextRotation/>
-                        </Suspense>
-                    </section>
+            <div className="welcome-container min-h-screen flex flex-col items-center justify-center">
+                <h1 className="big-welcomer flex justify-center">
+                    <TextRotation/>
                 </h1>
-            <div className="welcome-text ">
-                <p> This is my Webpage.</p>
+            </div>
+            <div className="welcome-text text-center flex flex-col items-center justify-center text-white">
+                <p> This is Karols Website.</p>
                 <Link href="/about">Go to my About Me page</Link>
             </div>
-            </div>
-        </div>)
+        </div>
+    )
 }

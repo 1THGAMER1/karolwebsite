@@ -6,6 +6,7 @@ import Link from "next/link";
 import BuyButton from "@/app/components/buybutton.js";
 import Cartbutton from "@/app/components/cartbutton.js";
 import Shopnavbar from "@/app/components/shopnavbar";
+import Footer from "@/app/components/footer";
 
 export default function HomePage() {
     const [loading, setLoading] = useState(true);  // Zustand für das Laden
@@ -64,20 +65,9 @@ export default function HomePage() {
                             </div>
                         ))}
                 </div>
-                 <h2 className="py-16 text-3xl text-center font-bold mb-12 text-gray-600">Auf Basis deiner bisherigen Suchanfragen</h2>
+                 <h2 className="py-16 text-3xl text-center font-bold mb-12 text-gray-600"> Auf Basis deiner bisherigen Suchanfragen </h2>
             </section>
-
-            {/* Footer */}
-            <footer className="bg-gray-900 text-white py-6">
-                <div className="container mx-auto text-center">
-                    <p>&copy; 2025 Beispiel Shop. Alle Rechte vorbehalten.</p>
-                    <div className="flex justify-center space-x-4 mt-4">
-                        <Link href="#">Facebook</Link>
-                        <Link href="#">Twitter</Link>
-                        <Link href="#">Instagram</Link>
-                    </div>
-                </div>
-            </footer>
+            <Footer />
         </div>
     );
 }

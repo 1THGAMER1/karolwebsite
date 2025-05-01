@@ -11,7 +11,14 @@ export async function POST(request){
         const data = await fs.readFile(filePath, "utf8");
         const cartitems = JSON.parse(data);
 
-        cartitems.push (body);
+        const alreadyExists = cartitems.findIndex(item => item.productId === body.productId);
+        if (alreadyExists) {
+            cartitems[alreadyExists].quantity+= body.quantity;
+        }
+        else{
+            cartitems.push(body)
+        }
+
         console.log(filePath);
 
         await fs.writeFile(filePath, JSON.stringify(cartitems, null, 2));

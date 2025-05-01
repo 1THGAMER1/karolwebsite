@@ -37,9 +37,6 @@ body {
   width: 100%;
 }
 
-.welcome-text {
-  padding: 2.5rem;
-}
 .animate-pulse {
   animation: pulse 1.5s infinite ease-in-out;
 }
@@ -63,8 +60,5 @@ body {
   }
   .welcome-container {
     padding: 2rem;
-  }
-  .welcome-text {
-    padding: 2.5rem;
   }
 }

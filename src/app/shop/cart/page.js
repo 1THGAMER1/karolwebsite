@@ -2,23 +2,36 @@
 
 import '../../globals.css'
 import Shopnavbar from "@/app/components/shopnavbar";
+import Footer from "@/app/components/footer";
+import FinalBuyButton from "@/app/components/finalbuybutton";
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence} from "framer-motion";
+import Link from "next/link";
 
 export default function CartPage(){
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const fetchCart = async () => {
             try {
-                const response = await fetch("/api/cart");
-                const data = await response.json();
-                if (Array.isArray(data)) {
-                    setCart(data);
-                } else {
-                    console.error("Erwartetes Array, aber bekommen: ", data)
-                    setCart([])
-                }
+                const [cartResponse, productsResponse] = await Promise.all([
+                    fetch("/api/cart"),
+                    fetch("/api/products"),
+                ])
+                const cartData = await cartResponse.json();
+                const productsData = await productsResponse.json();
+
+                const enrichedChart = cartData.map((item) => {
+                    const product = productsData.find(p => p.id === item.productId);
+                    return {
+                        ...item,
+                        ...product
+                    }
+                })
+                setCart(enrichedChart);
+
             } catch (error) {
                 console.log("Fehler beim laden des Warenkorbs", error);
                 setCart([])
@@ -30,34 +43,58 @@ export default function CartPage(){
     }, [])
 
     return(
-        <div>
+        <div className="bg-gradient-to-b from-gray-900  to-gray-950 min-h-screen flex flex-col">
             <Shopnavbar />
-            <h1> Welcome to your Shoppingcart </h1>
-            <section className="container mx-auto py-16">
-                <div className="gap12">
+            <section className="flex-grow container mx-auto py-16">
+                        <header className="text-white items-center flex justify-center font-semibold mb-auto min-h-[80px]">
+                            <h1> Dein Warenkorb </h1>
+                        </header>
+                    <div className="flex-grow p-4">
+                        <AnimatePresence>
                     {
                         loading ? (
-                            [1, 2, 3, 4].map((skeleton) => (
-                                <div key={skeleton} className="bg-white p-6 rounded-lg shadow-lg animate-pulse">
-                                    <div className="h-4 bg-gray-300 mb-2 rounded-md"></div>
-                                    <div className="h-4 bg-gray-300 mb-2 rounded-md"></div>
-                                    <div className="h-4 bg-gray-300 mb-2 rounded-md"></div>
-                                </div>
+                            [1, 2, 3].map((skeleton) => (
+                                <motion.div
+                                    key={skeleton}
+                                    className = "bg-white p-6 shadow-lg mb-4 animate-pulse"
+                                initial={{ opacity: 1 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.15 }}>
+                                    <div className="h-4 bg-gray-200 mb-2"></div>
+                                    <div className="h-4 bg-gray-200 mb-2"></div>
+                                </motion.div>
                             ))
                         ) : Array.isArray(cart) && cart.length === 0 ? (
                             <p className="text-center text-gray-500">Dein Warenkorb ist leer.</p>
                         ) : (
                             cart.map((item) => (
-                                <div key={item.productId} className="bg-white p-6">
-                                    <p className="text-xl font-semibold text-gray-500">ProduktId: {item.productId}</p>
-                                    <p className="text-xl font-semibold text-gray-400">Menge: {item.quantity}</p>
+                                <div key={item.productId} className="bg-white p-6 flex items-center border-t border-gray-400">
+                                    <div className="h-4 border-t"></div>
+                                    <div className="flex-shrink-0">
+                                        <img src={item.imgSrc}
+                                             alt={item.title}
+                                             className="w-24 h-24 object-cover rounded-lg mr-4 hover:scale-151" />
+                                    </div>
+                                    <div className="flex-1 px-4">
+                                        <p className="text-xl font-semibold text-gray-500">Produkt: {item.name}</p>
+                                        <p className="text-xl font-semibold text-gray-400">Preis: {item.price}</p>
+                                        <p className="text-xl font-semibold text-gray-400">Menge: {item.quantity}</p>
+                                    </div>
+                                    <div className="flex-shrink-0 ml-4 text-xl font-bold text-gray-950">
+                                        <p>{(item.quantity * parseFloat(item.price.replace("€", ""))).toFixed(2)} €</p>
+                                    </div>
                                 </div>
                             ))
-                        )
-                    }
-                    </div>
-
+                        )}
+                        </AnimatePresence>
+                </div>
+                <FinalBuyButton />
             </section>
+
+            <footer className="mt-auto p-4">
+                <Footer />
+            </footer>
         </div>
     );
 }

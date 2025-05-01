@@ -17,7 +17,7 @@ export default function TextRotation() {
     }, [])
 
     return (
-        <div className="relative h-16 flex items-center justify-center text-4x1 font-bold overflow-hidden">
+        <div>
             <AnimatePresence mode="wait">
                 <motion.span
                     key={woerter[index]}

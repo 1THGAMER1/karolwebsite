@@ -28,12 +28,14 @@ export default function Cartbutton({ productId }) {
             <button
                 onClick={clicked ? handleFinalClick : handleFirstClick}
                 className={`
-          ${clicked ? "bg-green-500 text-white px-2 py-2 text-sm" : "bg-blue-500 text-white px-4 py-2"} 
+          ${clicked ? "bg-green-500 hover:bg-green-600 text-white px-2 py-2 text-sm" : "bg-blue-500 hover:bg-blue-700 text-white px-4 py-2"} 
           rounded-lg mt-4 w-full transition-all duration-300
           ${clicked ? "transform scale-90" : ""}
         `}
             >
-                {addedToCart ? "Hinzugefügt ✓" : clicked ? "Anzahl wählen" : "Dem Warenkorb hinzufügen"}
+                {/* TODO Umgehung der Warenkorb Kontrolle durch wiederholtes Anklicken || Zu fixen */}
+
+                {addedToCart ? "Hinzugefügt ✓" : clicked ? "Bestätigen" : "Dem Warenkorb hinzufügen"}
             </button>
 
             {/* Anzahl Auswahl nur, wenn der Button kleiner gemacht wurde */}
