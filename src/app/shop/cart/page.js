@@ -3,6 +3,7 @@
 import '../../globals.css';
 import Image from 'next/image';
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Shopnavbar from "@/app/components/shopnavbar";
 import Footer from "@/app/components/footer";
 import FinalBuyButton from "@/app/components/finalbuybutton";
@@ -136,6 +137,8 @@ export default function CartPage() {
             <footer className="mt-auto p-4">
                 <Footer />
             </footer>
+            <Analytics/>
+            <SpeedInsights/>
         </div>
     );
 }

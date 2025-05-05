@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Analytics } from "@vercel/analytics/react"
 import TextRotation from "@/app/components/textrotation.js";
 import Navbar from "@/app/components/navbar.js";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home(){
     return(
@@ -17,6 +18,8 @@ export default function Home(){
             <div className="welcome-text text-center flex flex-col items-center justify-center text-white">
                 <p> This is Karols Website.</p>
                 <Link href="/about">Go to my About Me page</Link>
+                <Analytics/>
+                <SpeedInsights/>
             </div>
         </div>
     )

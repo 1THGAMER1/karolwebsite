@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import Link from "next/link";
 import Image from "next/image";
 import BuyButton from "@/app/components/buybutton.js";
@@ -73,6 +74,8 @@ export default function HomePage() {
                  <h2 className="py-16 text-3xl text-center font-bold mb-12 text-gray-600"> Auf Basis deiner bisherigen Suchanfragen </h2>
             </section>
             <Footer />
+            <Analytics/>
+            <SpeedInsights/>
         </div>
     );
 }
