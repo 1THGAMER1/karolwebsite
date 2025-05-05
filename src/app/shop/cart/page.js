@@ -142,3 +142,5 @@ export default function CartPage() {
         </div>
     );
 }
+// TODO HINZUFÜGEN DES GESAMTPREISES
+// TODO HINZUFÜGEN DER OPTION VON ENTFERNUNG EINES PRODUKTES

@@ -134,6 +134,21 @@ exports.Prisma.WarenkorbScalarFieldEnum = {
   quantity: 'quantity'
 };
 
+exports.Prisma.BestellungScalarFieldEnum = {
+  id: 'id',
+  createdAt: 'createdAt',
+  sessionid: 'sessionid',
+  gesamtpreis: 'gesamtpreis'
+};
+
+exports.Prisma.BestellpostenScalarFieldEnum = {
+  id: 'id',
+  bestellungId: 'bestellungId',
+  productId: 'productId',
+  quantity: 'quantity',
+  einzelpreis: 'einzelpreis'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -147,7 +162,9 @@ exports.Prisma.QueryMode = {
 
 exports.Prisma.ModelName = {
   Produkte: 'Produkte',
-  Warenkorb: 'Warenkorb'
+  Warenkorb: 'Warenkorb',
+  Bestellung: 'Bestellung',
+  Bestellposten: 'Bestellposten'
 };
 
 /**

@@ -23,6 +23,16 @@ export type Produkte = $Result.DefaultSelection<Prisma.$ProduktePayload>
  * 
  */
 export type Warenkorb = $Result.DefaultSelection<Prisma.$WarenkorbPayload>
+/**
+ * Model Bestellung
+ * 
+ */
+export type Bestellung = $Result.DefaultSelection<Prisma.$BestellungPayload>
+/**
+ * Model Bestellposten
+ * 
+ */
+export type Bestellposten = $Result.DefaultSelection<Prisma.$BestellpostenPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -168,6 +178,26 @@ export class PrismaClient<
     * ```
     */
   get warenkorb(): Prisma.WarenkorbDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bestellung`: Exposes CRUD operations for the **Bestellung** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bestellungs
+    * const bestellungs = await prisma.bestellung.findMany()
+    * ```
+    */
+  get bestellung(): Prisma.BestellungDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.bestellposten`: Exposes CRUD operations for the **Bestellposten** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Bestellpostens
+    * const bestellpostens = await prisma.bestellposten.findMany()
+    * ```
+    */
+  get bestellposten(): Prisma.BestellpostenDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -609,7 +639,9 @@ export namespace Prisma {
 
   export const ModelName: {
     Produkte: 'Produkte',
-    Warenkorb: 'Warenkorb'
+    Warenkorb: 'Warenkorb',
+    Bestellung: 'Bestellung',
+    Bestellposten: 'Bestellposten'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -628,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "produkte" | "warenkorb"
+      modelProps: "produkte" | "warenkorb" | "bestellung" | "bestellposten"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -780,6 +812,154 @@ export namespace Prisma {
           }
         }
       }
+      Bestellung: {
+        payload: Prisma.$BestellungPayload<ExtArgs>
+        fields: Prisma.BestellungFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BestellungFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BestellungFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>
+          }
+          findFirst: {
+            args: Prisma.BestellungFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BestellungFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>
+          }
+          findMany: {
+            args: Prisma.BestellungFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>[]
+          }
+          create: {
+            args: Prisma.BestellungCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>
+          }
+          createMany: {
+            args: Prisma.BestellungCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BestellungCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>[]
+          }
+          delete: {
+            args: Prisma.BestellungDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>
+          }
+          update: {
+            args: Prisma.BestellungUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>
+          }
+          deleteMany: {
+            args: Prisma.BestellungDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BestellungUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BestellungUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>[]
+          }
+          upsert: {
+            args: Prisma.BestellungUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellungPayload>
+          }
+          aggregate: {
+            args: Prisma.BestellungAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBestellung>
+          }
+          groupBy: {
+            args: Prisma.BestellungGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BestellungGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BestellungCountArgs<ExtArgs>
+            result: $Utils.Optional<BestellungCountAggregateOutputType> | number
+          }
+        }
+      }
+      Bestellposten: {
+        payload: Prisma.$BestellpostenPayload<ExtArgs>
+        fields: Prisma.BestellpostenFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.BestellpostenFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.BestellpostenFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>
+          }
+          findFirst: {
+            args: Prisma.BestellpostenFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.BestellpostenFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>
+          }
+          findMany: {
+            args: Prisma.BestellpostenFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>[]
+          }
+          create: {
+            args: Prisma.BestellpostenCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>
+          }
+          createMany: {
+            args: Prisma.BestellpostenCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.BestellpostenCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>[]
+          }
+          delete: {
+            args: Prisma.BestellpostenDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>
+          }
+          update: {
+            args: Prisma.BestellpostenUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>
+          }
+          deleteMany: {
+            args: Prisma.BestellpostenDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.BestellpostenUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.BestellpostenUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>[]
+          }
+          upsert: {
+            args: Prisma.BestellpostenUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$BestellpostenPayload>
+          }
+          aggregate: {
+            args: Prisma.BestellpostenAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateBestellposten>
+          }
+          groupBy: {
+            args: Prisma.BestellpostenGroupByArgs<ExtArgs>
+            result: $Utils.Optional<BestellpostenGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.BestellpostenCountArgs<ExtArgs>
+            result: $Utils.Optional<BestellpostenCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -866,6 +1046,8 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     produkte?: ProdukteOmit
     warenkorb?: WarenkorbOmit
+    bestellung?: BestellungOmit
+    bestellposten?: BestellpostenOmit
   }
 
   /* Types for Logging */
@@ -961,10 +1143,12 @@ export namespace Prisma {
 
   export type ProdukteCountOutputType = {
     Warenkorb: number
+    Bestellposten: number
   }
 
   export type ProdukteCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Warenkorb?: boolean | ProdukteCountOutputTypeCountWarenkorbArgs
+    Bestellposten?: boolean | ProdukteCountOutputTypeCountBestellpostenArgs
   }
 
   // Custom InputTypes
@@ -983,6 +1167,44 @@ export namespace Prisma {
    */
   export type ProdukteCountOutputTypeCountWarenkorbArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: WarenkorbWhereInput
+  }
+
+  /**
+   * ProdukteCountOutputType without action
+   */
+  export type ProdukteCountOutputTypeCountBestellpostenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BestellpostenWhereInput
+  }
+
+
+  /**
+   * Count Type BestellungCountOutputType
+   */
+
+  export type BestellungCountOutputType = {
+    postens: number
+  }
+
+  export type BestellungCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    postens?: boolean | BestellungCountOutputTypeCountPostensArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * BestellungCountOutputType without action
+   */
+  export type BestellungCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the BestellungCountOutputType
+     */
+    select?: BestellungCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * BestellungCountOutputType without action
+   */
+  export type BestellungCountOutputTypeCountPostensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BestellpostenWhereInput
   }
 
 
@@ -1185,6 +1407,7 @@ export namespace Prisma {
     price?: boolean
     imgsrc?: boolean
     Warenkorb?: boolean | Produkte$WarenkorbArgs<ExtArgs>
+    Bestellposten?: boolean | Produkte$BestellpostenArgs<ExtArgs>
     _count?: boolean | ProdukteCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["produkte"]>
 
@@ -1212,6 +1435,7 @@ export namespace Prisma {
   export type ProdukteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "imgsrc", ExtArgs["result"]["produkte"]>
   export type ProdukteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Warenkorb?: boolean | Produkte$WarenkorbArgs<ExtArgs>
+    Bestellposten?: boolean | Produkte$BestellpostenArgs<ExtArgs>
     _count?: boolean | ProdukteCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProdukteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1221,6 +1445,7 @@ export namespace Prisma {
     name: "Produkte"
     objects: {
       Warenkorb: Prisma.$WarenkorbPayload<ExtArgs>[]
+      Bestellposten: Prisma.$BestellpostenPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1622,6 +1847,7 @@ export namespace Prisma {
   export interface Prisma__ProdukteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     Warenkorb<T extends Produkte$WarenkorbArgs<ExtArgs> = {}>(args?: Subset<T, Produkte$WarenkorbArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$WarenkorbPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Bestellposten<T extends Produkte$BestellpostenArgs<ExtArgs> = {}>(args?: Subset<T, Produkte$BestellpostenArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2064,6 +2290,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: WarenkorbScalarFieldEnum | WarenkorbScalarFieldEnum[]
+  }
+
+  /**
+   * Produkte.Bestellposten
+   */
+  export type Produkte$BestellpostenArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    where?: BestellpostenWhereInput
+    orderBy?: BestellpostenOrderByWithRelationInput | BestellpostenOrderByWithRelationInput[]
+    cursor?: BestellpostenWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BestellpostenScalarFieldEnum | BestellpostenScalarFieldEnum[]
   }
 
   /**
@@ -3173,6 +3423,2217 @@ export namespace Prisma {
 
 
   /**
+   * Model Bestellung
+   */
+
+  export type AggregateBestellung = {
+    _count: BestellungCountAggregateOutputType | null
+    _avg: BestellungAvgAggregateOutputType | null
+    _sum: BestellungSumAggregateOutputType | null
+    _min: BestellungMinAggregateOutputType | null
+    _max: BestellungMaxAggregateOutputType | null
+  }
+
+  export type BestellungAvgAggregateOutputType = {
+    id: number | null
+    gesamtpreis: Decimal | null
+  }
+
+  export type BestellungSumAggregateOutputType = {
+    id: number | null
+    gesamtpreis: Decimal | null
+  }
+
+  export type BestellungMinAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    sessionid: string | null
+    gesamtpreis: Decimal | null
+  }
+
+  export type BestellungMaxAggregateOutputType = {
+    id: number | null
+    createdAt: Date | null
+    sessionid: string | null
+    gesamtpreis: Decimal | null
+  }
+
+  export type BestellungCountAggregateOutputType = {
+    id: number
+    createdAt: number
+    sessionid: number
+    gesamtpreis: number
+    _all: number
+  }
+
+
+  export type BestellungAvgAggregateInputType = {
+    id?: true
+    gesamtpreis?: true
+  }
+
+  export type BestellungSumAggregateInputType = {
+    id?: true
+    gesamtpreis?: true
+  }
+
+  export type BestellungMinAggregateInputType = {
+    id?: true
+    createdAt?: true
+    sessionid?: true
+    gesamtpreis?: true
+  }
+
+  export type BestellungMaxAggregateInputType = {
+    id?: true
+    createdAt?: true
+    sessionid?: true
+    gesamtpreis?: true
+  }
+
+  export type BestellungCountAggregateInputType = {
+    id?: true
+    createdAt?: true
+    sessionid?: true
+    gesamtpreis?: true
+    _all?: true
+  }
+
+  export type BestellungAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bestellung to aggregate.
+     */
+    where?: BestellungWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellungs to fetch.
+     */
+    orderBy?: BestellungOrderByWithRelationInput | BestellungOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BestellungWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellungs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellungs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Bestellungs
+    **/
+    _count?: true | BestellungCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BestellungAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BestellungSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BestellungMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BestellungMaxAggregateInputType
+  }
+
+  export type GetBestellungAggregateType<T extends BestellungAggregateArgs> = {
+        [P in keyof T & keyof AggregateBestellung]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBestellung[P]>
+      : GetScalarType<T[P], AggregateBestellung[P]>
+  }
+
+
+
+
+  export type BestellungGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BestellungWhereInput
+    orderBy?: BestellungOrderByWithAggregationInput | BestellungOrderByWithAggregationInput[]
+    by: BestellungScalarFieldEnum[] | BestellungScalarFieldEnum
+    having?: BestellungScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BestellungCountAggregateInputType | true
+    _avg?: BestellungAvgAggregateInputType
+    _sum?: BestellungSumAggregateInputType
+    _min?: BestellungMinAggregateInputType
+    _max?: BestellungMaxAggregateInputType
+  }
+
+  export type BestellungGroupByOutputType = {
+    id: number
+    createdAt: Date
+    sessionid: string
+    gesamtpreis: Decimal
+    _count: BestellungCountAggregateOutputType | null
+    _avg: BestellungAvgAggregateOutputType | null
+    _sum: BestellungSumAggregateOutputType | null
+    _min: BestellungMinAggregateOutputType | null
+    _max: BestellungMaxAggregateOutputType | null
+  }
+
+  type GetBestellungGroupByPayload<T extends BestellungGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BestellungGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BestellungGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BestellungGroupByOutputType[P]>
+            : GetScalarType<T[P], BestellungGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BestellungSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    sessionid?: boolean
+    gesamtpreis?: boolean
+    postens?: boolean | Bestellung$postensArgs<ExtArgs>
+    _count?: boolean | BestellungCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bestellung"]>
+
+  export type BestellungSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    sessionid?: boolean
+    gesamtpreis?: boolean
+  }, ExtArgs["result"]["bestellung"]>
+
+  export type BestellungSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    createdAt?: boolean
+    sessionid?: boolean
+    gesamtpreis?: boolean
+  }, ExtArgs["result"]["bestellung"]>
+
+  export type BestellungSelectScalar = {
+    id?: boolean
+    createdAt?: boolean
+    sessionid?: boolean
+    gesamtpreis?: boolean
+  }
+
+  export type BestellungOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "createdAt" | "sessionid" | "gesamtpreis", ExtArgs["result"]["bestellung"]>
+  export type BestellungInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    postens?: boolean | Bestellung$postensArgs<ExtArgs>
+    _count?: boolean | BestellungCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type BestellungIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type BestellungIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+
+  export type $BestellungPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Bestellung"
+    objects: {
+      postens: Prisma.$BestellpostenPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      createdAt: Date
+      sessionid: string
+      gesamtpreis: Prisma.Decimal
+    }, ExtArgs["result"]["bestellung"]>
+    composites: {}
+  }
+
+  type BestellungGetPayload<S extends boolean | null | undefined | BestellungDefaultArgs> = $Result.GetResult<Prisma.$BestellungPayload, S>
+
+  type BestellungCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BestellungFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BestellungCountAggregateInputType | true
+    }
+
+  export interface BestellungDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Bestellung'], meta: { name: 'Bestellung' } }
+    /**
+     * Find zero or one Bestellung that matches the filter.
+     * @param {BestellungFindUniqueArgs} args - Arguments to find a Bestellung
+     * @example
+     * // Get one Bestellung
+     * const bestellung = await prisma.bestellung.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BestellungFindUniqueArgs>(args: SelectSubset<T, BestellungFindUniqueArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Bestellung that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BestellungFindUniqueOrThrowArgs} args - Arguments to find a Bestellung
+     * @example
+     * // Get one Bestellung
+     * const bestellung = await prisma.bestellung.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BestellungFindUniqueOrThrowArgs>(args: SelectSubset<T, BestellungFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bestellung that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellungFindFirstArgs} args - Arguments to find a Bestellung
+     * @example
+     * // Get one Bestellung
+     * const bestellung = await prisma.bestellung.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BestellungFindFirstArgs>(args?: SelectSubset<T, BestellungFindFirstArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bestellung that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellungFindFirstOrThrowArgs} args - Arguments to find a Bestellung
+     * @example
+     * // Get one Bestellung
+     * const bestellung = await prisma.bestellung.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BestellungFindFirstOrThrowArgs>(args?: SelectSubset<T, BestellungFindFirstOrThrowArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bestellungs that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellungFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bestellungs
+     * const bestellungs = await prisma.bestellung.findMany()
+     * 
+     * // Get first 10 Bestellungs
+     * const bestellungs = await prisma.bestellung.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bestellungWithIdOnly = await prisma.bestellung.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BestellungFindManyArgs>(args?: SelectSubset<T, BestellungFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Bestellung.
+     * @param {BestellungCreateArgs} args - Arguments to create a Bestellung.
+     * @example
+     * // Create one Bestellung
+     * const Bestellung = await prisma.bestellung.create({
+     *   data: {
+     *     // ... data to create a Bestellung
+     *   }
+     * })
+     * 
+     */
+    create<T extends BestellungCreateArgs>(args: SelectSubset<T, BestellungCreateArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bestellungs.
+     * @param {BestellungCreateManyArgs} args - Arguments to create many Bestellungs.
+     * @example
+     * // Create many Bestellungs
+     * const bestellung = await prisma.bestellung.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BestellungCreateManyArgs>(args?: SelectSubset<T, BestellungCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bestellungs and returns the data saved in the database.
+     * @param {BestellungCreateManyAndReturnArgs} args - Arguments to create many Bestellungs.
+     * @example
+     * // Create many Bestellungs
+     * const bestellung = await prisma.bestellung.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bestellungs and only return the `id`
+     * const bestellungWithIdOnly = await prisma.bestellung.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BestellungCreateManyAndReturnArgs>(args?: SelectSubset<T, BestellungCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Bestellung.
+     * @param {BestellungDeleteArgs} args - Arguments to delete one Bestellung.
+     * @example
+     * // Delete one Bestellung
+     * const Bestellung = await prisma.bestellung.delete({
+     *   where: {
+     *     // ... filter to delete one Bestellung
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BestellungDeleteArgs>(args: SelectSubset<T, BestellungDeleteArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Bestellung.
+     * @param {BestellungUpdateArgs} args - Arguments to update one Bestellung.
+     * @example
+     * // Update one Bestellung
+     * const bestellung = await prisma.bestellung.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BestellungUpdateArgs>(args: SelectSubset<T, BestellungUpdateArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bestellungs.
+     * @param {BestellungDeleteManyArgs} args - Arguments to filter Bestellungs to delete.
+     * @example
+     * // Delete a few Bestellungs
+     * const { count } = await prisma.bestellung.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BestellungDeleteManyArgs>(args?: SelectSubset<T, BestellungDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bestellungs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellungUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bestellungs
+     * const bestellung = await prisma.bestellung.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BestellungUpdateManyArgs>(args: SelectSubset<T, BestellungUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bestellungs and returns the data updated in the database.
+     * @param {BestellungUpdateManyAndReturnArgs} args - Arguments to update many Bestellungs.
+     * @example
+     * // Update many Bestellungs
+     * const bestellung = await prisma.bestellung.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Bestellungs and only return the `id`
+     * const bestellungWithIdOnly = await prisma.bestellung.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BestellungUpdateManyAndReturnArgs>(args: SelectSubset<T, BestellungUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Bestellung.
+     * @param {BestellungUpsertArgs} args - Arguments to update or create a Bestellung.
+     * @example
+     * // Update or create a Bestellung
+     * const bestellung = await prisma.bestellung.upsert({
+     *   create: {
+     *     // ... data to create a Bestellung
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Bestellung we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BestellungUpsertArgs>(args: SelectSubset<T, BestellungUpsertArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bestellungs.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellungCountArgs} args - Arguments to filter Bestellungs to count.
+     * @example
+     * // Count the number of Bestellungs
+     * const count = await prisma.bestellung.count({
+     *   where: {
+     *     // ... the filter for the Bestellungs we want to count
+     *   }
+     * })
+    **/
+    count<T extends BestellungCountArgs>(
+      args?: Subset<T, BestellungCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BestellungCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Bestellung.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellungAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BestellungAggregateArgs>(args: Subset<T, BestellungAggregateArgs>): Prisma.PrismaPromise<GetBestellungAggregateType<T>>
+
+    /**
+     * Group by Bestellung.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellungGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BestellungGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BestellungGroupByArgs['orderBy'] }
+        : { orderBy?: BestellungGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BestellungGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBestellungGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Bestellung model
+   */
+  readonly fields: BestellungFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Bestellung.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BestellungClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    postens<T extends Bestellung$postensArgs<ExtArgs> = {}>(args?: Subset<T, Bestellung$postensArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Bestellung model
+   */
+  interface BestellungFieldRefs {
+    readonly id: FieldRef<"Bestellung", 'Int'>
+    readonly createdAt: FieldRef<"Bestellung", 'DateTime'>
+    readonly sessionid: FieldRef<"Bestellung", 'String'>
+    readonly gesamtpreis: FieldRef<"Bestellung", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Bestellung findUnique
+   */
+  export type BestellungFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellung to fetch.
+     */
+    where: BestellungWhereUniqueInput
+  }
+
+  /**
+   * Bestellung findUniqueOrThrow
+   */
+  export type BestellungFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellung to fetch.
+     */
+    where: BestellungWhereUniqueInput
+  }
+
+  /**
+   * Bestellung findFirst
+   */
+  export type BestellungFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellung to fetch.
+     */
+    where?: BestellungWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellungs to fetch.
+     */
+    orderBy?: BestellungOrderByWithRelationInput | BestellungOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bestellungs.
+     */
+    cursor?: BestellungWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellungs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellungs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bestellungs.
+     */
+    distinct?: BestellungScalarFieldEnum | BestellungScalarFieldEnum[]
+  }
+
+  /**
+   * Bestellung findFirstOrThrow
+   */
+  export type BestellungFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellung to fetch.
+     */
+    where?: BestellungWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellungs to fetch.
+     */
+    orderBy?: BestellungOrderByWithRelationInput | BestellungOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bestellungs.
+     */
+    cursor?: BestellungWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellungs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellungs.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bestellungs.
+     */
+    distinct?: BestellungScalarFieldEnum | BestellungScalarFieldEnum[]
+  }
+
+  /**
+   * Bestellung findMany
+   */
+  export type BestellungFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellungs to fetch.
+     */
+    where?: BestellungWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellungs to fetch.
+     */
+    orderBy?: BestellungOrderByWithRelationInput | BestellungOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Bestellungs.
+     */
+    cursor?: BestellungWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellungs from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellungs.
+     */
+    skip?: number
+    distinct?: BestellungScalarFieldEnum | BestellungScalarFieldEnum[]
+  }
+
+  /**
+   * Bestellung create
+   */
+  export type BestellungCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Bestellung.
+     */
+    data: XOR<BestellungCreateInput, BestellungUncheckedCreateInput>
+  }
+
+  /**
+   * Bestellung createMany
+   */
+  export type BestellungCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Bestellungs.
+     */
+    data: BestellungCreateManyInput | BestellungCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Bestellung createManyAndReturn
+   */
+  export type BestellungCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * The data used to create many Bestellungs.
+     */
+    data: BestellungCreateManyInput | BestellungCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Bestellung update
+   */
+  export type BestellungUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Bestellung.
+     */
+    data: XOR<BestellungUpdateInput, BestellungUncheckedUpdateInput>
+    /**
+     * Choose, which Bestellung to update.
+     */
+    where: BestellungWhereUniqueInput
+  }
+
+  /**
+   * Bestellung updateMany
+   */
+  export type BestellungUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Bestellungs.
+     */
+    data: XOR<BestellungUpdateManyMutationInput, BestellungUncheckedUpdateManyInput>
+    /**
+     * Filter which Bestellungs to update
+     */
+    where?: BestellungWhereInput
+    /**
+     * Limit how many Bestellungs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bestellung updateManyAndReturn
+   */
+  export type BestellungUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * The data used to update Bestellungs.
+     */
+    data: XOR<BestellungUpdateManyMutationInput, BestellungUncheckedUpdateManyInput>
+    /**
+     * Filter which Bestellungs to update
+     */
+    where?: BestellungWhereInput
+    /**
+     * Limit how many Bestellungs to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bestellung upsert
+   */
+  export type BestellungUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Bestellung to update in case it exists.
+     */
+    where: BestellungWhereUniqueInput
+    /**
+     * In case the Bestellung found by the `where` argument doesn't exist, create a new Bestellung with this data.
+     */
+    create: XOR<BestellungCreateInput, BestellungUncheckedCreateInput>
+    /**
+     * In case the Bestellung was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BestellungUpdateInput, BestellungUncheckedUpdateInput>
+  }
+
+  /**
+   * Bestellung delete
+   */
+  export type BestellungDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+    /**
+     * Filter which Bestellung to delete.
+     */
+    where: BestellungWhereUniqueInput
+  }
+
+  /**
+   * Bestellung deleteMany
+   */
+  export type BestellungDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bestellungs to delete
+     */
+    where?: BestellungWhereInput
+    /**
+     * Limit how many Bestellungs to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bestellung.postens
+   */
+  export type Bestellung$postensArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    where?: BestellpostenWhereInput
+    orderBy?: BestellpostenOrderByWithRelationInput | BestellpostenOrderByWithRelationInput[]
+    cursor?: BestellpostenWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: BestellpostenScalarFieldEnum | BestellpostenScalarFieldEnum[]
+  }
+
+  /**
+   * Bestellung without action
+   */
+  export type BestellungDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellung
+     */
+    select?: BestellungSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellung
+     */
+    omit?: BestellungOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellungInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Bestellposten
+   */
+
+  export type AggregateBestellposten = {
+    _count: BestellpostenCountAggregateOutputType | null
+    _avg: BestellpostenAvgAggregateOutputType | null
+    _sum: BestellpostenSumAggregateOutputType | null
+    _min: BestellpostenMinAggregateOutputType | null
+    _max: BestellpostenMaxAggregateOutputType | null
+  }
+
+  export type BestellpostenAvgAggregateOutputType = {
+    id: number | null
+    bestellungId: number | null
+    productId: number | null
+    quantity: number | null
+    einzelpreis: Decimal | null
+  }
+
+  export type BestellpostenSumAggregateOutputType = {
+    id: number | null
+    bestellungId: number | null
+    productId: number | null
+    quantity: number | null
+    einzelpreis: Decimal | null
+  }
+
+  export type BestellpostenMinAggregateOutputType = {
+    id: number | null
+    bestellungId: number | null
+    productId: number | null
+    quantity: number | null
+    einzelpreis: Decimal | null
+  }
+
+  export type BestellpostenMaxAggregateOutputType = {
+    id: number | null
+    bestellungId: number | null
+    productId: number | null
+    quantity: number | null
+    einzelpreis: Decimal | null
+  }
+
+  export type BestellpostenCountAggregateOutputType = {
+    id: number
+    bestellungId: number
+    productId: number
+    quantity: number
+    einzelpreis: number
+    _all: number
+  }
+
+
+  export type BestellpostenAvgAggregateInputType = {
+    id?: true
+    bestellungId?: true
+    productId?: true
+    quantity?: true
+    einzelpreis?: true
+  }
+
+  export type BestellpostenSumAggregateInputType = {
+    id?: true
+    bestellungId?: true
+    productId?: true
+    quantity?: true
+    einzelpreis?: true
+  }
+
+  export type BestellpostenMinAggregateInputType = {
+    id?: true
+    bestellungId?: true
+    productId?: true
+    quantity?: true
+    einzelpreis?: true
+  }
+
+  export type BestellpostenMaxAggregateInputType = {
+    id?: true
+    bestellungId?: true
+    productId?: true
+    quantity?: true
+    einzelpreis?: true
+  }
+
+  export type BestellpostenCountAggregateInputType = {
+    id?: true
+    bestellungId?: true
+    productId?: true
+    quantity?: true
+    einzelpreis?: true
+    _all?: true
+  }
+
+  export type BestellpostenAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bestellposten to aggregate.
+     */
+    where?: BestellpostenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellpostens to fetch.
+     */
+    orderBy?: BestellpostenOrderByWithRelationInput | BestellpostenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: BestellpostenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellpostens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellpostens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Bestellpostens
+    **/
+    _count?: true | BestellpostenCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: BestellpostenAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: BestellpostenSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: BestellpostenMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: BestellpostenMaxAggregateInputType
+  }
+
+  export type GetBestellpostenAggregateType<T extends BestellpostenAggregateArgs> = {
+        [P in keyof T & keyof AggregateBestellposten]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateBestellposten[P]>
+      : GetScalarType<T[P], AggregateBestellposten[P]>
+  }
+
+
+
+
+  export type BestellpostenGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: BestellpostenWhereInput
+    orderBy?: BestellpostenOrderByWithAggregationInput | BestellpostenOrderByWithAggregationInput[]
+    by: BestellpostenScalarFieldEnum[] | BestellpostenScalarFieldEnum
+    having?: BestellpostenScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: BestellpostenCountAggregateInputType | true
+    _avg?: BestellpostenAvgAggregateInputType
+    _sum?: BestellpostenSumAggregateInputType
+    _min?: BestellpostenMinAggregateInputType
+    _max?: BestellpostenMaxAggregateInputType
+  }
+
+  export type BestellpostenGroupByOutputType = {
+    id: number
+    bestellungId: number
+    productId: number
+    quantity: number
+    einzelpreis: Decimal
+    _count: BestellpostenCountAggregateOutputType | null
+    _avg: BestellpostenAvgAggregateOutputType | null
+    _sum: BestellpostenSumAggregateOutputType | null
+    _min: BestellpostenMinAggregateOutputType | null
+    _max: BestellpostenMaxAggregateOutputType | null
+  }
+
+  type GetBestellpostenGroupByPayload<T extends BestellpostenGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<BestellpostenGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof BestellpostenGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], BestellpostenGroupByOutputType[P]>
+            : GetScalarType<T[P], BestellpostenGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type BestellpostenSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bestellungId?: boolean
+    productId?: boolean
+    quantity?: boolean
+    einzelpreis?: boolean
+    bestellung?: boolean | BestellungDefaultArgs<ExtArgs>
+    product?: boolean | ProdukteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bestellposten"]>
+
+  export type BestellpostenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bestellungId?: boolean
+    productId?: boolean
+    quantity?: boolean
+    einzelpreis?: boolean
+    bestellung?: boolean | BestellungDefaultArgs<ExtArgs>
+    product?: boolean | ProdukteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bestellposten"]>
+
+  export type BestellpostenSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    bestellungId?: boolean
+    productId?: boolean
+    quantity?: boolean
+    einzelpreis?: boolean
+    bestellung?: boolean | BestellungDefaultArgs<ExtArgs>
+    product?: boolean | ProdukteDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["bestellposten"]>
+
+  export type BestellpostenSelectScalar = {
+    id?: boolean
+    bestellungId?: boolean
+    productId?: boolean
+    quantity?: boolean
+    einzelpreis?: boolean
+  }
+
+  export type BestellpostenOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "bestellungId" | "productId" | "quantity" | "einzelpreis", ExtArgs["result"]["bestellposten"]>
+  export type BestellpostenInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bestellung?: boolean | BestellungDefaultArgs<ExtArgs>
+    product?: boolean | ProdukteDefaultArgs<ExtArgs>
+  }
+  export type BestellpostenIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bestellung?: boolean | BestellungDefaultArgs<ExtArgs>
+    product?: boolean | ProdukteDefaultArgs<ExtArgs>
+  }
+  export type BestellpostenIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    bestellung?: boolean | BestellungDefaultArgs<ExtArgs>
+    product?: boolean | ProdukteDefaultArgs<ExtArgs>
+  }
+
+  export type $BestellpostenPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Bestellposten"
+    objects: {
+      bestellung: Prisma.$BestellungPayload<ExtArgs>
+      product: Prisma.$ProduktePayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      bestellungId: number
+      productId: number
+      quantity: number
+      einzelpreis: Prisma.Decimal
+    }, ExtArgs["result"]["bestellposten"]>
+    composites: {}
+  }
+
+  type BestellpostenGetPayload<S extends boolean | null | undefined | BestellpostenDefaultArgs> = $Result.GetResult<Prisma.$BestellpostenPayload, S>
+
+  type BestellpostenCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<BestellpostenFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: BestellpostenCountAggregateInputType | true
+    }
+
+  export interface BestellpostenDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Bestellposten'], meta: { name: 'Bestellposten' } }
+    /**
+     * Find zero or one Bestellposten that matches the filter.
+     * @param {BestellpostenFindUniqueArgs} args - Arguments to find a Bestellposten
+     * @example
+     * // Get one Bestellposten
+     * const bestellposten = await prisma.bestellposten.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends BestellpostenFindUniqueArgs>(args: SelectSubset<T, BestellpostenFindUniqueArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Bestellposten that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {BestellpostenFindUniqueOrThrowArgs} args - Arguments to find a Bestellposten
+     * @example
+     * // Get one Bestellposten
+     * const bestellposten = await prisma.bestellposten.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends BestellpostenFindUniqueOrThrowArgs>(args: SelectSubset<T, BestellpostenFindUniqueOrThrowArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bestellposten that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellpostenFindFirstArgs} args - Arguments to find a Bestellposten
+     * @example
+     * // Get one Bestellposten
+     * const bestellposten = await prisma.bestellposten.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends BestellpostenFindFirstArgs>(args?: SelectSubset<T, BestellpostenFindFirstArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Bestellposten that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellpostenFindFirstOrThrowArgs} args - Arguments to find a Bestellposten
+     * @example
+     * // Get one Bestellposten
+     * const bestellposten = await prisma.bestellposten.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends BestellpostenFindFirstOrThrowArgs>(args?: SelectSubset<T, BestellpostenFindFirstOrThrowArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Bestellpostens that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellpostenFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Bestellpostens
+     * const bestellpostens = await prisma.bestellposten.findMany()
+     * 
+     * // Get first 10 Bestellpostens
+     * const bestellpostens = await prisma.bestellposten.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const bestellpostenWithIdOnly = await prisma.bestellposten.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends BestellpostenFindManyArgs>(args?: SelectSubset<T, BestellpostenFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Bestellposten.
+     * @param {BestellpostenCreateArgs} args - Arguments to create a Bestellposten.
+     * @example
+     * // Create one Bestellposten
+     * const Bestellposten = await prisma.bestellposten.create({
+     *   data: {
+     *     // ... data to create a Bestellposten
+     *   }
+     * })
+     * 
+     */
+    create<T extends BestellpostenCreateArgs>(args: SelectSubset<T, BestellpostenCreateArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Bestellpostens.
+     * @param {BestellpostenCreateManyArgs} args - Arguments to create many Bestellpostens.
+     * @example
+     * // Create many Bestellpostens
+     * const bestellposten = await prisma.bestellposten.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends BestellpostenCreateManyArgs>(args?: SelectSubset<T, BestellpostenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Bestellpostens and returns the data saved in the database.
+     * @param {BestellpostenCreateManyAndReturnArgs} args - Arguments to create many Bestellpostens.
+     * @example
+     * // Create many Bestellpostens
+     * const bestellposten = await prisma.bestellposten.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Bestellpostens and only return the `id`
+     * const bestellpostenWithIdOnly = await prisma.bestellposten.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends BestellpostenCreateManyAndReturnArgs>(args?: SelectSubset<T, BestellpostenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Bestellposten.
+     * @param {BestellpostenDeleteArgs} args - Arguments to delete one Bestellposten.
+     * @example
+     * // Delete one Bestellposten
+     * const Bestellposten = await prisma.bestellposten.delete({
+     *   where: {
+     *     // ... filter to delete one Bestellposten
+     *   }
+     * })
+     * 
+     */
+    delete<T extends BestellpostenDeleteArgs>(args: SelectSubset<T, BestellpostenDeleteArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Bestellposten.
+     * @param {BestellpostenUpdateArgs} args - Arguments to update one Bestellposten.
+     * @example
+     * // Update one Bestellposten
+     * const bestellposten = await prisma.bestellposten.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends BestellpostenUpdateArgs>(args: SelectSubset<T, BestellpostenUpdateArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Bestellpostens.
+     * @param {BestellpostenDeleteManyArgs} args - Arguments to filter Bestellpostens to delete.
+     * @example
+     * // Delete a few Bestellpostens
+     * const { count } = await prisma.bestellposten.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends BestellpostenDeleteManyArgs>(args?: SelectSubset<T, BestellpostenDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bestellpostens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellpostenUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Bestellpostens
+     * const bestellposten = await prisma.bestellposten.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends BestellpostenUpdateManyArgs>(args: SelectSubset<T, BestellpostenUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Bestellpostens and returns the data updated in the database.
+     * @param {BestellpostenUpdateManyAndReturnArgs} args - Arguments to update many Bestellpostens.
+     * @example
+     * // Update many Bestellpostens
+     * const bestellposten = await prisma.bestellposten.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Bestellpostens and only return the `id`
+     * const bestellpostenWithIdOnly = await prisma.bestellposten.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends BestellpostenUpdateManyAndReturnArgs>(args: SelectSubset<T, BestellpostenUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Bestellposten.
+     * @param {BestellpostenUpsertArgs} args - Arguments to update or create a Bestellposten.
+     * @example
+     * // Update or create a Bestellposten
+     * const bestellposten = await prisma.bestellposten.upsert({
+     *   create: {
+     *     // ... data to create a Bestellposten
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Bestellposten we want to update
+     *   }
+     * })
+     */
+    upsert<T extends BestellpostenUpsertArgs>(args: SelectSubset<T, BestellpostenUpsertArgs<ExtArgs>>): Prisma__BestellpostenClient<$Result.GetResult<Prisma.$BestellpostenPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Bestellpostens.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellpostenCountArgs} args - Arguments to filter Bestellpostens to count.
+     * @example
+     * // Count the number of Bestellpostens
+     * const count = await prisma.bestellposten.count({
+     *   where: {
+     *     // ... the filter for the Bestellpostens we want to count
+     *   }
+     * })
+    **/
+    count<T extends BestellpostenCountArgs>(
+      args?: Subset<T, BestellpostenCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], BestellpostenCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Bestellposten.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellpostenAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends BestellpostenAggregateArgs>(args: Subset<T, BestellpostenAggregateArgs>): Prisma.PrismaPromise<GetBestellpostenAggregateType<T>>
+
+    /**
+     * Group by Bestellposten.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {BestellpostenGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends BestellpostenGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: BestellpostenGroupByArgs['orderBy'] }
+        : { orderBy?: BestellpostenGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, BestellpostenGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetBestellpostenGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Bestellposten model
+   */
+  readonly fields: BestellpostenFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Bestellposten.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__BestellpostenClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    bestellung<T extends BestellungDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BestellungDefaultArgs<ExtArgs>>): Prisma__BestellungClient<$Result.GetResult<Prisma.$BestellungPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    product<T extends ProdukteDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ProdukteDefaultArgs<ExtArgs>>): Prisma__ProdukteClient<$Result.GetResult<Prisma.$ProduktePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Bestellposten model
+   */
+  interface BestellpostenFieldRefs {
+    readonly id: FieldRef<"Bestellposten", 'Int'>
+    readonly bestellungId: FieldRef<"Bestellposten", 'Int'>
+    readonly productId: FieldRef<"Bestellposten", 'Int'>
+    readonly quantity: FieldRef<"Bestellposten", 'Int'>
+    readonly einzelpreis: FieldRef<"Bestellposten", 'Decimal'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Bestellposten findUnique
+   */
+  export type BestellpostenFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellposten to fetch.
+     */
+    where: BestellpostenWhereUniqueInput
+  }
+
+  /**
+   * Bestellposten findUniqueOrThrow
+   */
+  export type BestellpostenFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellposten to fetch.
+     */
+    where: BestellpostenWhereUniqueInput
+  }
+
+  /**
+   * Bestellposten findFirst
+   */
+  export type BestellpostenFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellposten to fetch.
+     */
+    where?: BestellpostenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellpostens to fetch.
+     */
+    orderBy?: BestellpostenOrderByWithRelationInput | BestellpostenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bestellpostens.
+     */
+    cursor?: BestellpostenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellpostens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellpostens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bestellpostens.
+     */
+    distinct?: BestellpostenScalarFieldEnum | BestellpostenScalarFieldEnum[]
+  }
+
+  /**
+   * Bestellposten findFirstOrThrow
+   */
+  export type BestellpostenFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellposten to fetch.
+     */
+    where?: BestellpostenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellpostens to fetch.
+     */
+    orderBy?: BestellpostenOrderByWithRelationInput | BestellpostenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Bestellpostens.
+     */
+    cursor?: BestellpostenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellpostens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellpostens.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Bestellpostens.
+     */
+    distinct?: BestellpostenScalarFieldEnum | BestellpostenScalarFieldEnum[]
+  }
+
+  /**
+   * Bestellposten findMany
+   */
+  export type BestellpostenFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * Filter, which Bestellpostens to fetch.
+     */
+    where?: BestellpostenWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Bestellpostens to fetch.
+     */
+    orderBy?: BestellpostenOrderByWithRelationInput | BestellpostenOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Bestellpostens.
+     */
+    cursor?: BestellpostenWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Bestellpostens from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Bestellpostens.
+     */
+    skip?: number
+    distinct?: BestellpostenScalarFieldEnum | BestellpostenScalarFieldEnum[]
+  }
+
+  /**
+   * Bestellposten create
+   */
+  export type BestellpostenCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Bestellposten.
+     */
+    data: XOR<BestellpostenCreateInput, BestellpostenUncheckedCreateInput>
+  }
+
+  /**
+   * Bestellposten createMany
+   */
+  export type BestellpostenCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Bestellpostens.
+     */
+    data: BestellpostenCreateManyInput | BestellpostenCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Bestellposten createManyAndReturn
+   */
+  export type BestellpostenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * The data used to create many Bestellpostens.
+     */
+    data: BestellpostenCreateManyInput | BestellpostenCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Bestellposten update
+   */
+  export type BestellpostenUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Bestellposten.
+     */
+    data: XOR<BestellpostenUpdateInput, BestellpostenUncheckedUpdateInput>
+    /**
+     * Choose, which Bestellposten to update.
+     */
+    where: BestellpostenWhereUniqueInput
+  }
+
+  /**
+   * Bestellposten updateMany
+   */
+  export type BestellpostenUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Bestellpostens.
+     */
+    data: XOR<BestellpostenUpdateManyMutationInput, BestellpostenUncheckedUpdateManyInput>
+    /**
+     * Filter which Bestellpostens to update
+     */
+    where?: BestellpostenWhereInput
+    /**
+     * Limit how many Bestellpostens to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bestellposten updateManyAndReturn
+   */
+  export type BestellpostenUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * The data used to update Bestellpostens.
+     */
+    data: XOR<BestellpostenUpdateManyMutationInput, BestellpostenUncheckedUpdateManyInput>
+    /**
+     * Filter which Bestellpostens to update
+     */
+    where?: BestellpostenWhereInput
+    /**
+     * Limit how many Bestellpostens to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Bestellposten upsert
+   */
+  export type BestellpostenUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Bestellposten to update in case it exists.
+     */
+    where: BestellpostenWhereUniqueInput
+    /**
+     * In case the Bestellposten found by the `where` argument doesn't exist, create a new Bestellposten with this data.
+     */
+    create: XOR<BestellpostenCreateInput, BestellpostenUncheckedCreateInput>
+    /**
+     * In case the Bestellposten was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<BestellpostenUpdateInput, BestellpostenUncheckedUpdateInput>
+  }
+
+  /**
+   * Bestellposten delete
+   */
+  export type BestellpostenDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+    /**
+     * Filter which Bestellposten to delete.
+     */
+    where: BestellpostenWhereUniqueInput
+  }
+
+  /**
+   * Bestellposten deleteMany
+   */
+  export type BestellpostenDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Bestellpostens to delete
+     */
+    where?: BestellpostenWhereInput
+    /**
+     * Limit how many Bestellpostens to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Bestellposten without action
+   */
+  export type BestellpostenDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Bestellposten
+     */
+    select?: BestellpostenSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Bestellposten
+     */
+    omit?: BestellpostenOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: BestellpostenInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -3204,6 +5665,27 @@ export namespace Prisma {
   };
 
   export type WarenkorbScalarFieldEnum = (typeof WarenkorbScalarFieldEnum)[keyof typeof WarenkorbScalarFieldEnum]
+
+
+  export const BestellungScalarFieldEnum: {
+    id: 'id',
+    createdAt: 'createdAt',
+    sessionid: 'sessionid',
+    gesamtpreis: 'gesamtpreis'
+  };
+
+  export type BestellungScalarFieldEnum = (typeof BestellungScalarFieldEnum)[keyof typeof BestellungScalarFieldEnum]
+
+
+  export const BestellpostenScalarFieldEnum: {
+    id: 'id',
+    bestellungId: 'bestellungId',
+    productId: 'productId',
+    quantity: 'quantity',
+    einzelpreis: 'einzelpreis'
+  };
+
+  export type BestellpostenScalarFieldEnum = (typeof BestellpostenScalarFieldEnum)[keyof typeof BestellpostenScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3270,6 +5752,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'DateTime'
+   */
+  export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+  /**
+   * Reference to a field of type 'DateTime[]'
+   */
+  export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -3295,6 +5791,7 @@ export namespace Prisma {
     price?: DecimalFilter<"Produkte"> | Decimal | DecimalJsLike | number | string
     imgsrc?: StringFilter<"Produkte"> | string
     Warenkorb?: WarenkorbListRelationFilter
+    Bestellposten?: BestellpostenListRelationFilter
   }
 
   export type ProdukteOrderByWithRelationInput = {
@@ -3303,6 +5800,7 @@ export namespace Prisma {
     price?: SortOrder
     imgsrc?: SortOrder
     Warenkorb?: WarenkorbOrderByRelationAggregateInput
+    Bestellposten?: BestellpostenOrderByRelationAggregateInput
   }
 
   export type ProdukteWhereUniqueInput = Prisma.AtLeast<{
@@ -3314,6 +5812,7 @@ export namespace Prisma {
     price?: DecimalFilter<"Produkte"> | Decimal | DecimalJsLike | number | string
     imgsrc?: StringFilter<"Produkte"> | string
     Warenkorb?: WarenkorbListRelationFilter
+    Bestellposten?: BestellpostenListRelationFilter
   }, "id">
 
   export type ProdukteOrderByWithAggregationInput = {
@@ -3391,11 +5890,124 @@ export namespace Prisma {
     quantity?: IntWithAggregatesFilter<"Warenkorb"> | number
   }
 
+  export type BestellungWhereInput = {
+    AND?: BestellungWhereInput | BestellungWhereInput[]
+    OR?: BestellungWhereInput[]
+    NOT?: BestellungWhereInput | BestellungWhereInput[]
+    id?: IntFilter<"Bestellung"> | number
+    createdAt?: DateTimeFilter<"Bestellung"> | Date | string
+    sessionid?: StringFilter<"Bestellung"> | string
+    gesamtpreis?: DecimalFilter<"Bestellung"> | Decimal | DecimalJsLike | number | string
+    postens?: BestellpostenListRelationFilter
+  }
+
+  export type BestellungOrderByWithRelationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    sessionid?: SortOrder
+    gesamtpreis?: SortOrder
+    postens?: BestellpostenOrderByRelationAggregateInput
+  }
+
+  export type BestellungWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BestellungWhereInput | BestellungWhereInput[]
+    OR?: BestellungWhereInput[]
+    NOT?: BestellungWhereInput | BestellungWhereInput[]
+    createdAt?: DateTimeFilter<"Bestellung"> | Date | string
+    sessionid?: StringFilter<"Bestellung"> | string
+    gesamtpreis?: DecimalFilter<"Bestellung"> | Decimal | DecimalJsLike | number | string
+    postens?: BestellpostenListRelationFilter
+  }, "id">
+
+  export type BestellungOrderByWithAggregationInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    sessionid?: SortOrder
+    gesamtpreis?: SortOrder
+    _count?: BestellungCountOrderByAggregateInput
+    _avg?: BestellungAvgOrderByAggregateInput
+    _max?: BestellungMaxOrderByAggregateInput
+    _min?: BestellungMinOrderByAggregateInput
+    _sum?: BestellungSumOrderByAggregateInput
+  }
+
+  export type BestellungScalarWhereWithAggregatesInput = {
+    AND?: BestellungScalarWhereWithAggregatesInput | BestellungScalarWhereWithAggregatesInput[]
+    OR?: BestellungScalarWhereWithAggregatesInput[]
+    NOT?: BestellungScalarWhereWithAggregatesInput | BestellungScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Bestellung"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Bestellung"> | Date | string
+    sessionid?: StringWithAggregatesFilter<"Bestellung"> | string
+    gesamtpreis?: DecimalWithAggregatesFilter<"Bestellung"> | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenWhereInput = {
+    AND?: BestellpostenWhereInput | BestellpostenWhereInput[]
+    OR?: BestellpostenWhereInput[]
+    NOT?: BestellpostenWhereInput | BestellpostenWhereInput[]
+    id?: IntFilter<"Bestellposten"> | number
+    bestellungId?: IntFilter<"Bestellposten"> | number
+    productId?: IntFilter<"Bestellposten"> | number
+    quantity?: IntFilter<"Bestellposten"> | number
+    einzelpreis?: DecimalFilter<"Bestellposten"> | Decimal | DecimalJsLike | number | string
+    bestellung?: XOR<BestellungScalarRelationFilter, BestellungWhereInput>
+    product?: XOR<ProdukteScalarRelationFilter, ProdukteWhereInput>
+  }
+
+  export type BestellpostenOrderByWithRelationInput = {
+    id?: SortOrder
+    bestellungId?: SortOrder
+    productId?: SortOrder
+    quantity?: SortOrder
+    einzelpreis?: SortOrder
+    bestellung?: BestellungOrderByWithRelationInput
+    product?: ProdukteOrderByWithRelationInput
+  }
+
+  export type BestellpostenWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: BestellpostenWhereInput | BestellpostenWhereInput[]
+    OR?: BestellpostenWhereInput[]
+    NOT?: BestellpostenWhereInput | BestellpostenWhereInput[]
+    bestellungId?: IntFilter<"Bestellposten"> | number
+    productId?: IntFilter<"Bestellposten"> | number
+    quantity?: IntFilter<"Bestellposten"> | number
+    einzelpreis?: DecimalFilter<"Bestellposten"> | Decimal | DecimalJsLike | number | string
+    bestellung?: XOR<BestellungScalarRelationFilter, BestellungWhereInput>
+    product?: XOR<ProdukteScalarRelationFilter, ProdukteWhereInput>
+  }, "id">
+
+  export type BestellpostenOrderByWithAggregationInput = {
+    id?: SortOrder
+    bestellungId?: SortOrder
+    productId?: SortOrder
+    quantity?: SortOrder
+    einzelpreis?: SortOrder
+    _count?: BestellpostenCountOrderByAggregateInput
+    _avg?: BestellpostenAvgOrderByAggregateInput
+    _max?: BestellpostenMaxOrderByAggregateInput
+    _min?: BestellpostenMinOrderByAggregateInput
+    _sum?: BestellpostenSumOrderByAggregateInput
+  }
+
+  export type BestellpostenScalarWhereWithAggregatesInput = {
+    AND?: BestellpostenScalarWhereWithAggregatesInput | BestellpostenScalarWhereWithAggregatesInput[]
+    OR?: BestellpostenScalarWhereWithAggregatesInput[]
+    NOT?: BestellpostenScalarWhereWithAggregatesInput | BestellpostenScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Bestellposten"> | number
+    bestellungId?: IntWithAggregatesFilter<"Bestellposten"> | number
+    productId?: IntWithAggregatesFilter<"Bestellposten"> | number
+    quantity?: IntWithAggregatesFilter<"Bestellposten"> | number
+    einzelpreis?: DecimalWithAggregatesFilter<"Bestellposten"> | Decimal | DecimalJsLike | number | string
+  }
+
   export type ProdukteCreateInput = {
     name: string
     price: Decimal | DecimalJsLike | number | string
     imgsrc: string
     Warenkorb?: WarenkorbCreateNestedManyWithoutProductInput
+    Bestellposten?: BestellpostenCreateNestedManyWithoutProductInput
   }
 
   export type ProdukteUncheckedCreateInput = {
@@ -3404,6 +6016,7 @@ export namespace Prisma {
     price: Decimal | DecimalJsLike | number | string
     imgsrc: string
     Warenkorb?: WarenkorbUncheckedCreateNestedManyWithoutProductInput
+    Bestellposten?: BestellpostenUncheckedCreateNestedManyWithoutProductInput
   }
 
   export type ProdukteUpdateInput = {
@@ -3411,6 +6024,7 @@ export namespace Prisma {
     price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imgsrc?: StringFieldUpdateOperationsInput | string
     Warenkorb?: WarenkorbUpdateManyWithoutProductNestedInput
+    Bestellposten?: BestellpostenUpdateManyWithoutProductNestedInput
   }
 
   export type ProdukteUncheckedUpdateInput = {
@@ -3419,6 +6033,7 @@ export namespace Prisma {
     price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imgsrc?: StringFieldUpdateOperationsInput | string
     Warenkorb?: WarenkorbUncheckedUpdateManyWithoutProductNestedInput
+    Bestellposten?: BestellpostenUncheckedUpdateManyWithoutProductNestedInput
   }
 
   export type ProdukteCreateManyInput = {
@@ -3486,6 +6101,107 @@ export namespace Prisma {
     quantity?: IntFieldUpdateOperationsInput | number
   }
 
+  export type BestellungCreateInput = {
+    createdAt?: Date | string
+    sessionid: string
+    gesamtpreis: Decimal | DecimalJsLike | number | string
+    postens?: BestellpostenCreateNestedManyWithoutBestellungInput
+  }
+
+  export type BestellungUncheckedCreateInput = {
+    id?: number
+    createdAt?: Date | string
+    sessionid: string
+    gesamtpreis: Decimal | DecimalJsLike | number | string
+    postens?: BestellpostenUncheckedCreateNestedManyWithoutBestellungInput
+  }
+
+  export type BestellungUpdateInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessionid?: StringFieldUpdateOperationsInput | string
+    gesamtpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    postens?: BestellpostenUpdateManyWithoutBestellungNestedInput
+  }
+
+  export type BestellungUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessionid?: StringFieldUpdateOperationsInput | string
+    gesamtpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    postens?: BestellpostenUncheckedUpdateManyWithoutBestellungNestedInput
+  }
+
+  export type BestellungCreateManyInput = {
+    id?: number
+    createdAt?: Date | string
+    sessionid: string
+    gesamtpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellungUpdateManyMutationInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessionid?: StringFieldUpdateOperationsInput | string
+    gesamtpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellungUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessionid?: StringFieldUpdateOperationsInput | string
+    gesamtpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenCreateInput = {
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+    bestellung: BestellungCreateNestedOneWithoutPostensInput
+    product: ProdukteCreateNestedOneWithoutBestellpostenInput
+  }
+
+  export type BestellpostenUncheckedCreateInput = {
+    id?: number
+    bestellungId: number
+    productId: number
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenUpdateInput = {
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    bestellung?: BestellungUpdateOneRequiredWithoutPostensNestedInput
+    product?: ProdukteUpdateOneRequiredWithoutBestellpostenNestedInput
+  }
+
+  export type BestellpostenUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    bestellungId?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenCreateManyInput = {
+    id?: number
+    bestellungId: number
+    productId: number
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenUpdateManyMutationInput = {
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    bestellungId?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -3529,7 +6245,17 @@ export namespace Prisma {
     none?: WarenkorbWhereInput
   }
 
+  export type BestellpostenListRelationFilter = {
+    every?: BestellpostenWhereInput
+    some?: BestellpostenWhereInput
+    none?: BestellpostenWhereInput
+  }
+
   export type WarenkorbOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type BestellpostenOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -3657,6 +6383,107 @@ export namespace Prisma {
     quantity?: SortOrder
   }
 
+  export type DateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type BestellungCountOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    sessionid?: SortOrder
+    gesamtpreis?: SortOrder
+  }
+
+  export type BestellungAvgOrderByAggregateInput = {
+    id?: SortOrder
+    gesamtpreis?: SortOrder
+  }
+
+  export type BestellungMaxOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    sessionid?: SortOrder
+    gesamtpreis?: SortOrder
+  }
+
+  export type BestellungMinOrderByAggregateInput = {
+    id?: SortOrder
+    createdAt?: SortOrder
+    sessionid?: SortOrder
+    gesamtpreis?: SortOrder
+  }
+
+  export type BestellungSumOrderByAggregateInput = {
+    id?: SortOrder
+    gesamtpreis?: SortOrder
+  }
+
+  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type BestellungScalarRelationFilter = {
+    is?: BestellungWhereInput
+    isNot?: BestellungWhereInput
+  }
+
+  export type BestellpostenCountOrderByAggregateInput = {
+    id?: SortOrder
+    bestellungId?: SortOrder
+    productId?: SortOrder
+    quantity?: SortOrder
+    einzelpreis?: SortOrder
+  }
+
+  export type BestellpostenAvgOrderByAggregateInput = {
+    id?: SortOrder
+    bestellungId?: SortOrder
+    productId?: SortOrder
+    quantity?: SortOrder
+    einzelpreis?: SortOrder
+  }
+
+  export type BestellpostenMaxOrderByAggregateInput = {
+    id?: SortOrder
+    bestellungId?: SortOrder
+    productId?: SortOrder
+    quantity?: SortOrder
+    einzelpreis?: SortOrder
+  }
+
+  export type BestellpostenMinOrderByAggregateInput = {
+    id?: SortOrder
+    bestellungId?: SortOrder
+    productId?: SortOrder
+    quantity?: SortOrder
+    einzelpreis?: SortOrder
+  }
+
+  export type BestellpostenSumOrderByAggregateInput = {
+    id?: SortOrder
+    bestellungId?: SortOrder
+    productId?: SortOrder
+    quantity?: SortOrder
+    einzelpreis?: SortOrder
+  }
+
   export type WarenkorbCreateNestedManyWithoutProductInput = {
     create?: XOR<WarenkorbCreateWithoutProductInput, WarenkorbUncheckedCreateWithoutProductInput> | WarenkorbCreateWithoutProductInput[] | WarenkorbUncheckedCreateWithoutProductInput[]
     connectOrCreate?: WarenkorbCreateOrConnectWithoutProductInput | WarenkorbCreateOrConnectWithoutProductInput[]
@@ -3664,11 +6491,25 @@ export namespace Prisma {
     connect?: WarenkorbWhereUniqueInput | WarenkorbWhereUniqueInput[]
   }
 
+  export type BestellpostenCreateNestedManyWithoutProductInput = {
+    create?: XOR<BestellpostenCreateWithoutProductInput, BestellpostenUncheckedCreateWithoutProductInput> | BestellpostenCreateWithoutProductInput[] | BestellpostenUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutProductInput | BestellpostenCreateOrConnectWithoutProductInput[]
+    createMany?: BestellpostenCreateManyProductInputEnvelope
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+  }
+
   export type WarenkorbUncheckedCreateNestedManyWithoutProductInput = {
     create?: XOR<WarenkorbCreateWithoutProductInput, WarenkorbUncheckedCreateWithoutProductInput> | WarenkorbCreateWithoutProductInput[] | WarenkorbUncheckedCreateWithoutProductInput[]
     connectOrCreate?: WarenkorbCreateOrConnectWithoutProductInput | WarenkorbCreateOrConnectWithoutProductInput[]
     createMany?: WarenkorbCreateManyProductInputEnvelope
     connect?: WarenkorbWhereUniqueInput | WarenkorbWhereUniqueInput[]
+  }
+
+  export type BestellpostenUncheckedCreateNestedManyWithoutProductInput = {
+    create?: XOR<BestellpostenCreateWithoutProductInput, BestellpostenUncheckedCreateWithoutProductInput> | BestellpostenCreateWithoutProductInput[] | BestellpostenUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutProductInput | BestellpostenCreateOrConnectWithoutProductInput[]
+    createMany?: BestellpostenCreateManyProductInputEnvelope
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -3697,6 +6538,20 @@ export namespace Prisma {
     deleteMany?: WarenkorbScalarWhereInput | WarenkorbScalarWhereInput[]
   }
 
+  export type BestellpostenUpdateManyWithoutProductNestedInput = {
+    create?: XOR<BestellpostenCreateWithoutProductInput, BestellpostenUncheckedCreateWithoutProductInput> | BestellpostenCreateWithoutProductInput[] | BestellpostenUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutProductInput | BestellpostenCreateOrConnectWithoutProductInput[]
+    upsert?: BestellpostenUpsertWithWhereUniqueWithoutProductInput | BestellpostenUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: BestellpostenCreateManyProductInputEnvelope
+    set?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    disconnect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    delete?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    update?: BestellpostenUpdateWithWhereUniqueWithoutProductInput | BestellpostenUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: BestellpostenUpdateManyWithWhereWithoutProductInput | BestellpostenUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: BestellpostenScalarWhereInput | BestellpostenScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -3719,6 +6574,20 @@ export namespace Prisma {
     deleteMany?: WarenkorbScalarWhereInput | WarenkorbScalarWhereInput[]
   }
 
+  export type BestellpostenUncheckedUpdateManyWithoutProductNestedInput = {
+    create?: XOR<BestellpostenCreateWithoutProductInput, BestellpostenUncheckedCreateWithoutProductInput> | BestellpostenCreateWithoutProductInput[] | BestellpostenUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutProductInput | BestellpostenCreateOrConnectWithoutProductInput[]
+    upsert?: BestellpostenUpsertWithWhereUniqueWithoutProductInput | BestellpostenUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: BestellpostenCreateManyProductInputEnvelope
+    set?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    disconnect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    delete?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    update?: BestellpostenUpdateWithWhereUniqueWithoutProductInput | BestellpostenUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: BestellpostenUpdateManyWithWhereWithoutProductInput | BestellpostenUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: BestellpostenScalarWhereInput | BestellpostenScalarWhereInput[]
+  }
+
   export type ProdukteCreateNestedOneWithoutWarenkorbInput = {
     create?: XOR<ProdukteCreateWithoutWarenkorbInput, ProdukteUncheckedCreateWithoutWarenkorbInput>
     connectOrCreate?: ProdukteCreateOrConnectWithoutWarenkorbInput
@@ -3731,6 +6600,80 @@ export namespace Prisma {
     upsert?: ProdukteUpsertWithoutWarenkorbInput
     connect?: ProdukteWhereUniqueInput
     update?: XOR<XOR<ProdukteUpdateToOneWithWhereWithoutWarenkorbInput, ProdukteUpdateWithoutWarenkorbInput>, ProdukteUncheckedUpdateWithoutWarenkorbInput>
+  }
+
+  export type BestellpostenCreateNestedManyWithoutBestellungInput = {
+    create?: XOR<BestellpostenCreateWithoutBestellungInput, BestellpostenUncheckedCreateWithoutBestellungInput> | BestellpostenCreateWithoutBestellungInput[] | BestellpostenUncheckedCreateWithoutBestellungInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutBestellungInput | BestellpostenCreateOrConnectWithoutBestellungInput[]
+    createMany?: BestellpostenCreateManyBestellungInputEnvelope
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+  }
+
+  export type BestellpostenUncheckedCreateNestedManyWithoutBestellungInput = {
+    create?: XOR<BestellpostenCreateWithoutBestellungInput, BestellpostenUncheckedCreateWithoutBestellungInput> | BestellpostenCreateWithoutBestellungInput[] | BestellpostenUncheckedCreateWithoutBestellungInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutBestellungInput | BestellpostenCreateOrConnectWithoutBestellungInput[]
+    createMany?: BestellpostenCreateManyBestellungInputEnvelope
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+  }
+
+  export type DateTimeFieldUpdateOperationsInput = {
+    set?: Date | string
+  }
+
+  export type BestellpostenUpdateManyWithoutBestellungNestedInput = {
+    create?: XOR<BestellpostenCreateWithoutBestellungInput, BestellpostenUncheckedCreateWithoutBestellungInput> | BestellpostenCreateWithoutBestellungInput[] | BestellpostenUncheckedCreateWithoutBestellungInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutBestellungInput | BestellpostenCreateOrConnectWithoutBestellungInput[]
+    upsert?: BestellpostenUpsertWithWhereUniqueWithoutBestellungInput | BestellpostenUpsertWithWhereUniqueWithoutBestellungInput[]
+    createMany?: BestellpostenCreateManyBestellungInputEnvelope
+    set?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    disconnect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    delete?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    update?: BestellpostenUpdateWithWhereUniqueWithoutBestellungInput | BestellpostenUpdateWithWhereUniqueWithoutBestellungInput[]
+    updateMany?: BestellpostenUpdateManyWithWhereWithoutBestellungInput | BestellpostenUpdateManyWithWhereWithoutBestellungInput[]
+    deleteMany?: BestellpostenScalarWhereInput | BestellpostenScalarWhereInput[]
+  }
+
+  export type BestellpostenUncheckedUpdateManyWithoutBestellungNestedInput = {
+    create?: XOR<BestellpostenCreateWithoutBestellungInput, BestellpostenUncheckedCreateWithoutBestellungInput> | BestellpostenCreateWithoutBestellungInput[] | BestellpostenUncheckedCreateWithoutBestellungInput[]
+    connectOrCreate?: BestellpostenCreateOrConnectWithoutBestellungInput | BestellpostenCreateOrConnectWithoutBestellungInput[]
+    upsert?: BestellpostenUpsertWithWhereUniqueWithoutBestellungInput | BestellpostenUpsertWithWhereUniqueWithoutBestellungInput[]
+    createMany?: BestellpostenCreateManyBestellungInputEnvelope
+    set?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    disconnect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    delete?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    connect?: BestellpostenWhereUniqueInput | BestellpostenWhereUniqueInput[]
+    update?: BestellpostenUpdateWithWhereUniqueWithoutBestellungInput | BestellpostenUpdateWithWhereUniqueWithoutBestellungInput[]
+    updateMany?: BestellpostenUpdateManyWithWhereWithoutBestellungInput | BestellpostenUpdateManyWithWhereWithoutBestellungInput[]
+    deleteMany?: BestellpostenScalarWhereInput | BestellpostenScalarWhereInput[]
+  }
+
+  export type BestellungCreateNestedOneWithoutPostensInput = {
+    create?: XOR<BestellungCreateWithoutPostensInput, BestellungUncheckedCreateWithoutPostensInput>
+    connectOrCreate?: BestellungCreateOrConnectWithoutPostensInput
+    connect?: BestellungWhereUniqueInput
+  }
+
+  export type ProdukteCreateNestedOneWithoutBestellpostenInput = {
+    create?: XOR<ProdukteCreateWithoutBestellpostenInput, ProdukteUncheckedCreateWithoutBestellpostenInput>
+    connectOrCreate?: ProdukteCreateOrConnectWithoutBestellpostenInput
+    connect?: ProdukteWhereUniqueInput
+  }
+
+  export type BestellungUpdateOneRequiredWithoutPostensNestedInput = {
+    create?: XOR<BestellungCreateWithoutPostensInput, BestellungUncheckedCreateWithoutPostensInput>
+    connectOrCreate?: BestellungCreateOrConnectWithoutPostensInput
+    upsert?: BestellungUpsertWithoutPostensInput
+    connect?: BestellungWhereUniqueInput
+    update?: XOR<XOR<BestellungUpdateToOneWithWhereWithoutPostensInput, BestellungUpdateWithoutPostensInput>, BestellungUncheckedUpdateWithoutPostensInput>
+  }
+
+  export type ProdukteUpdateOneRequiredWithoutBestellpostenNestedInput = {
+    create?: XOR<ProdukteCreateWithoutBestellpostenInput, ProdukteUncheckedCreateWithoutBestellpostenInput>
+    connectOrCreate?: ProdukteCreateOrConnectWithoutBestellpostenInput
+    upsert?: ProdukteUpsertWithoutBestellpostenInput
+    connect?: ProdukteWhereUniqueInput
+    update?: XOR<XOR<ProdukteUpdateToOneWithWhereWithoutBestellpostenInput, ProdukteUpdateWithoutBestellpostenInput>, ProdukteUncheckedUpdateWithoutBestellpostenInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -3829,6 +6772,31 @@ export namespace Prisma {
     _max?: NestedDecimalFilter<$PrismaModel>
   }
 
+  export type NestedDateTimeFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
+  }
+
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
   export type WarenkorbCreateWithoutProductInput = {
     sessionid: string
     quantity: number
@@ -3847,6 +6815,29 @@ export namespace Prisma {
 
   export type WarenkorbCreateManyProductInputEnvelope = {
     data: WarenkorbCreateManyProductInput | WarenkorbCreateManyProductInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BestellpostenCreateWithoutProductInput = {
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+    bestellung: BestellungCreateNestedOneWithoutPostensInput
+  }
+
+  export type BestellpostenUncheckedCreateWithoutProductInput = {
+    id?: number
+    bestellungId: number
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenCreateOrConnectWithoutProductInput = {
+    where: BestellpostenWhereUniqueInput
+    create: XOR<BestellpostenCreateWithoutProductInput, BestellpostenUncheckedCreateWithoutProductInput>
+  }
+
+  export type BestellpostenCreateManyProductInputEnvelope = {
+    data: BestellpostenCreateManyProductInput | BestellpostenCreateManyProductInput[]
     skipDuplicates?: boolean
   }
 
@@ -3876,10 +6867,38 @@ export namespace Prisma {
     quantity?: IntFilter<"Warenkorb"> | number
   }
 
+  export type BestellpostenUpsertWithWhereUniqueWithoutProductInput = {
+    where: BestellpostenWhereUniqueInput
+    update: XOR<BestellpostenUpdateWithoutProductInput, BestellpostenUncheckedUpdateWithoutProductInput>
+    create: XOR<BestellpostenCreateWithoutProductInput, BestellpostenUncheckedCreateWithoutProductInput>
+  }
+
+  export type BestellpostenUpdateWithWhereUniqueWithoutProductInput = {
+    where: BestellpostenWhereUniqueInput
+    data: XOR<BestellpostenUpdateWithoutProductInput, BestellpostenUncheckedUpdateWithoutProductInput>
+  }
+
+  export type BestellpostenUpdateManyWithWhereWithoutProductInput = {
+    where: BestellpostenScalarWhereInput
+    data: XOR<BestellpostenUpdateManyMutationInput, BestellpostenUncheckedUpdateManyWithoutProductInput>
+  }
+
+  export type BestellpostenScalarWhereInput = {
+    AND?: BestellpostenScalarWhereInput | BestellpostenScalarWhereInput[]
+    OR?: BestellpostenScalarWhereInput[]
+    NOT?: BestellpostenScalarWhereInput | BestellpostenScalarWhereInput[]
+    id?: IntFilter<"Bestellposten"> | number
+    bestellungId?: IntFilter<"Bestellposten"> | number
+    productId?: IntFilter<"Bestellposten"> | number
+    quantity?: IntFilter<"Bestellposten"> | number
+    einzelpreis?: DecimalFilter<"Bestellposten"> | Decimal | DecimalJsLike | number | string
+  }
+
   export type ProdukteCreateWithoutWarenkorbInput = {
     name: string
     price: Decimal | DecimalJsLike | number | string
     imgsrc: string
+    Bestellposten?: BestellpostenCreateNestedManyWithoutProductInput
   }
 
   export type ProdukteUncheckedCreateWithoutWarenkorbInput = {
@@ -3887,6 +6906,7 @@ export namespace Prisma {
     name: string
     price: Decimal | DecimalJsLike | number | string
     imgsrc: string
+    Bestellposten?: BestellpostenUncheckedCreateNestedManyWithoutProductInput
   }
 
   export type ProdukteCreateOrConnectWithoutWarenkorbInput = {
@@ -3909,6 +6929,7 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imgsrc?: StringFieldUpdateOperationsInput | string
+    Bestellposten?: BestellpostenUpdateManyWithoutProductNestedInput
   }
 
   export type ProdukteUncheckedUpdateWithoutWarenkorbInput = {
@@ -3916,12 +6937,147 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     imgsrc?: StringFieldUpdateOperationsInput | string
+    Bestellposten?: BestellpostenUncheckedUpdateManyWithoutProductNestedInput
+  }
+
+  export type BestellpostenCreateWithoutBestellungInput = {
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+    product: ProdukteCreateNestedOneWithoutBestellpostenInput
+  }
+
+  export type BestellpostenUncheckedCreateWithoutBestellungInput = {
+    id?: number
+    productId: number
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenCreateOrConnectWithoutBestellungInput = {
+    where: BestellpostenWhereUniqueInput
+    create: XOR<BestellpostenCreateWithoutBestellungInput, BestellpostenUncheckedCreateWithoutBestellungInput>
+  }
+
+  export type BestellpostenCreateManyBestellungInputEnvelope = {
+    data: BestellpostenCreateManyBestellungInput | BestellpostenCreateManyBestellungInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type BestellpostenUpsertWithWhereUniqueWithoutBestellungInput = {
+    where: BestellpostenWhereUniqueInput
+    update: XOR<BestellpostenUpdateWithoutBestellungInput, BestellpostenUncheckedUpdateWithoutBestellungInput>
+    create: XOR<BestellpostenCreateWithoutBestellungInput, BestellpostenUncheckedCreateWithoutBestellungInput>
+  }
+
+  export type BestellpostenUpdateWithWhereUniqueWithoutBestellungInput = {
+    where: BestellpostenWhereUniqueInput
+    data: XOR<BestellpostenUpdateWithoutBestellungInput, BestellpostenUncheckedUpdateWithoutBestellungInput>
+  }
+
+  export type BestellpostenUpdateManyWithWhereWithoutBestellungInput = {
+    where: BestellpostenScalarWhereInput
+    data: XOR<BestellpostenUpdateManyMutationInput, BestellpostenUncheckedUpdateManyWithoutBestellungInput>
+  }
+
+  export type BestellungCreateWithoutPostensInput = {
+    createdAt?: Date | string
+    sessionid: string
+    gesamtpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellungUncheckedCreateWithoutPostensInput = {
+    id?: number
+    createdAt?: Date | string
+    sessionid: string
+    gesamtpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellungCreateOrConnectWithoutPostensInput = {
+    where: BestellungWhereUniqueInput
+    create: XOR<BestellungCreateWithoutPostensInput, BestellungUncheckedCreateWithoutPostensInput>
+  }
+
+  export type ProdukteCreateWithoutBestellpostenInput = {
+    name: string
+    price: Decimal | DecimalJsLike | number | string
+    imgsrc: string
+    Warenkorb?: WarenkorbCreateNestedManyWithoutProductInput
+  }
+
+  export type ProdukteUncheckedCreateWithoutBestellpostenInput = {
+    id?: number
+    name: string
+    price: Decimal | DecimalJsLike | number | string
+    imgsrc: string
+    Warenkorb?: WarenkorbUncheckedCreateNestedManyWithoutProductInput
+  }
+
+  export type ProdukteCreateOrConnectWithoutBestellpostenInput = {
+    where: ProdukteWhereUniqueInput
+    create: XOR<ProdukteCreateWithoutBestellpostenInput, ProdukteUncheckedCreateWithoutBestellpostenInput>
+  }
+
+  export type BestellungUpsertWithoutPostensInput = {
+    update: XOR<BestellungUpdateWithoutPostensInput, BestellungUncheckedUpdateWithoutPostensInput>
+    create: XOR<BestellungCreateWithoutPostensInput, BestellungUncheckedCreateWithoutPostensInput>
+    where?: BestellungWhereInput
+  }
+
+  export type BestellungUpdateToOneWithWhereWithoutPostensInput = {
+    where?: BestellungWhereInput
+    data: XOR<BestellungUpdateWithoutPostensInput, BestellungUncheckedUpdateWithoutPostensInput>
+  }
+
+  export type BestellungUpdateWithoutPostensInput = {
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessionid?: StringFieldUpdateOperationsInput | string
+    gesamtpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellungUncheckedUpdateWithoutPostensInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sessionid?: StringFieldUpdateOperationsInput | string
+    gesamtpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type ProdukteUpsertWithoutBestellpostenInput = {
+    update: XOR<ProdukteUpdateWithoutBestellpostenInput, ProdukteUncheckedUpdateWithoutBestellpostenInput>
+    create: XOR<ProdukteCreateWithoutBestellpostenInput, ProdukteUncheckedCreateWithoutBestellpostenInput>
+    where?: ProdukteWhereInput
+  }
+
+  export type ProdukteUpdateToOneWithWhereWithoutBestellpostenInput = {
+    where?: ProdukteWhereInput
+    data: XOR<ProdukteUpdateWithoutBestellpostenInput, ProdukteUncheckedUpdateWithoutBestellpostenInput>
+  }
+
+  export type ProdukteUpdateWithoutBestellpostenInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    imgsrc?: StringFieldUpdateOperationsInput | string
+    Warenkorb?: WarenkorbUpdateManyWithoutProductNestedInput
+  }
+
+  export type ProdukteUncheckedUpdateWithoutBestellpostenInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    imgsrc?: StringFieldUpdateOperationsInput | string
+    Warenkorb?: WarenkorbUncheckedUpdateManyWithoutProductNestedInput
   }
 
   export type WarenkorbCreateManyProductInput = {
     id?: number
     sessionid: string
     quantity: number
+  }
+
+  export type BestellpostenCreateManyProductInput = {
+    id?: number
+    bestellungId: number
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
   }
 
   export type WarenkorbUpdateWithoutProductInput = {
@@ -3939,6 +7095,53 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     sessionid?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
+  }
+
+  export type BestellpostenUpdateWithoutProductInput = {
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    bestellung?: BestellungUpdateOneRequiredWithoutPostensNestedInput
+  }
+
+  export type BestellpostenUncheckedUpdateWithoutProductInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    bestellungId?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenUncheckedUpdateManyWithoutProductInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    bestellungId?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenCreateManyBestellungInput = {
+    id?: number
+    productId: number
+    quantity: number
+    einzelpreis: Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenUpdateWithoutBestellungInput = {
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    product?: ProdukteUpdateOneRequiredWithoutBestellpostenNestedInput
+  }
+
+  export type BestellpostenUncheckedUpdateWithoutBestellungInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+  }
+
+  export type BestellpostenUncheckedUpdateManyWithoutBestellungInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    productId?: IntFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    einzelpreis?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
   }
 
 

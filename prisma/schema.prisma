@@ -9,11 +9,12 @@ datasource db {
 }
 
 model Produkte {
-  id        Int         @id @default(autoincrement())
-  name      String
-  price     Decimal
-  imgsrc    String
-  Warenkorb Warenkorb[]
+  id            Int             @id @default(autoincrement())
+  name          String
+  price         Decimal
+  imgsrc        String
+  Warenkorb     Warenkorb[]
+  Bestellposten Bestellposten[]
 
   @@map("Produkte")
 }
@@ -27,4 +28,23 @@ model Warenkorb {
   product Produkte @relation(fields: [productid], references: [id])
 
   @@unique([sessionid, productid])
+}
+
+model Bestellung {
+  id          Int             @id @default(autoincrement())
+  createdAt   DateTime        @default(now())
+  sessionid   String
+  gesamtpreis Decimal // Gesamtpreis der Bestellung
+  postens     Bestellposten[] // Alle Produkte dieser Bestellung
+}
+
+model Bestellposten {
+  id           Int     @id @default(autoincrement())
+  bestellungId Int
+  productId    Int
+  quantity     Int
+  einzelpreis  Decimal // Preis Pro Produkt zum Zeitpunkt der Bestellung
+
+  bestellung Bestellung @relation(fields: [bestellungId], references: [id])
+  product    Produkte   @relation(fields: [productId], references: [id])
 }
