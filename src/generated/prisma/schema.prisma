@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Produkte {
+  id        Int         @id @default(autoincrement())
+  name      String
+  price     Decimal
+  imgsrc    String
+  Warenkorb Warenkorb[]
+
+  @@map("Produkte")
+}
+
+model Warenkorb {
+  id        Int    @id @default(autoincrement())
+  sessionid String
+  productid Int
+  quantity  Int
+
+  product Produkte @relation(fields: [productid], references: [id])
+
+  @@unique([sessionid, productid])
+}
