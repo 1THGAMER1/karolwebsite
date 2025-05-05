@@ -1,6 +1,7 @@
 import './globals.css'
 import { Suspense } from 'react'
 import Link from 'next/link';
+import { Analytics } from "@vercel/analytics/react"
 import TextRotation from "@/app/components/textrotation.js";
 import Navbar from "@/app/components/navbar.js";
 

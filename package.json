@@ -5,12 +5,13 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "npm run prisma:generate && next build",
-    "prisma:generate" : "npx prisma generate",
+    "prisma:generate": "npx prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.9.2",
     "next": "^15.3.1",
     "prisma": "^6.7.0",

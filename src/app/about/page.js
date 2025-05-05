@@ -1,5 +1,6 @@
 import '../globals.css'
 import Navbar from "@/app/components/navbar.js";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Page(){
     return(

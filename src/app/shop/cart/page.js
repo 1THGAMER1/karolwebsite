@@ -2,6 +2,7 @@
 
 import '../../globals.css';
 import Image from 'next/image';
+import { Analytics } from "@vercel/analytics/react"
 import Shopnavbar from "@/app/components/shopnavbar";
 import Footer from "@/app/components/footer";
 import FinalBuyButton from "@/app/components/finalbuybutton";

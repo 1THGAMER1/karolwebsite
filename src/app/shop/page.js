@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react"
 import Link from "next/link";
 import Image from "next/image";
 import BuyButton from "@/app/components/buybutton.js";
