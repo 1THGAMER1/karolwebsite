@@ -14,12 +14,17 @@ export default function Cartbutton({ productId }) {
 
     // Funktion für den finalen Klick, um zum Warenkorb hinzuzufügen
     const handleFinalClick = async () => {
-        await fetch("/api/cart/", {
+        const response = await fetch("/api/cart/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({productId, quantity})
         })
-        setAddedToCart(true);  // Optional: Kann anzeigen, dass das Produkt zum Warenkorb hinzugefügt wurde
+        // setAddedToCart(true);  // Optional: Kann anzeigen, dass das Produkt zum Warenkorb hinzugefügt wurde
+        if (response.ok) {
+            setAddedToCart(true);
+        } else {
+            alert("Error creating cart");
+        }
         setClicked(false);     // Button wieder in den Ausgangszustand versetze
     };
 

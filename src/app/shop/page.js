@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-/* import Image from "next/Image"; */
+import Image from "next/image";
 import BuyButton from "@/app/components/buybutton.js";
 import Cartbutton from "@/app/components/cartbutton.js";
 import Shopnavbar from "@/app/components/shopnavbar";
@@ -54,12 +54,16 @@ export default function HomePage() {
                             </div>
                         ))
                         : // Wenn Daten geladen sind, zeige die echten Produkte
-                        /* Am besten bald Benutzung von (bereits importiertem) next/image */
                         products.map((product) => (
                             <div key={product.id} className="bg-white p-6 rounded-lg shadow-lg">
-                                <img src={product.imgSrc} alt={product.name} className="w-full h-64 object-cover mb-4 rounded-lg" />
+                                <Image
+                                    src={product.imgsrc}
+                                    alt={product.name}
+                                    width={400}
+                                    height={400}
+                                    className="w-full h-64 object-cover mb-4 rounded-lg" />
                                 <h3 className="text-xl font-semibold text-gray-400">{product.name}</h3>
-                                <p className="text-gray-600">{product.price}</p>
+                                <p className="text-gray-600">{product.price}€</p>
                                 <Cartbutton productId = {product.id} />
                                 <BuyButton />
                             </div>
