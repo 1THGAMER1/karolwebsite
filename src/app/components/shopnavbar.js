@@ -5,7 +5,9 @@ export default function Shopnavbar() {
     return(
         <header className="bg-gray-900 text-white p-4 fixed top-0 w-full z-50">
             <div className="container mx-auto flex justify-between items-center text-center">
-                <div className="text-2xl font-bold">Karol&#39;s Shop</div>
+                <Link href="/shop">
+                    <h1 className="text-2xl font-bold text-blue-400">Karol&#39;s Shop</h1>
+                </Link>
                 <nav>
                     <ul className="flex space-x-6">
                         <li><Link href="/">Home</Link></li>
