@@ -43,6 +43,12 @@ export async function POST(req) {
         if (isNaN(productId)) {
             return new Response(JSON.stringify({ error: 'Ungültige Produkt ID' }), { status: 400 });
         }
+        // TODO Bei Input einer negativen Zahl wird ein Artikel hinzugefügt. Eine Fehlermeldung würde hier mehr Sinn machen
+        const quantity = Math.max(parseInt(body.quantity));
+        if (quantity <= 0) {
+            return new Response(JSON.stringify({ error: 'Die Menge muss mindestens 1 betragen' }), { status: 400 });
+        }
+
 
         // Überprüfe, ob der Artikel bereits im Warenkorb ist
         const existingCartItem = await prisma.warenkorb.findUnique({
@@ -58,7 +64,7 @@ export async function POST(req) {
             // Artikel existiert bereits, aktualisiere die Menge
             const updatedItem = await prisma.warenkorb.update({
                 where: { id: existingCartItem.id },
-                data: { quantity: existingCartItem.quantity + body.quantity },
+                data: { quantity: existingCartItem.quantity + quantity },
             });
             return new Response(JSON.stringify(updatedItem));
         } else {
@@ -67,7 +73,7 @@ export async function POST(req) {
                 data: {
                     sessionid: sessionId, // Verwende die korrekte session_id
                     productid: productId,
-                    quantity: body.quantity,
+                    quantity: quantity,
                 },
             });
             return new Response(JSON.stringify(newItem));

@@ -22,7 +22,7 @@ const youngserif = Young_Serif({
 
 export const metadata = {
   title: "Karol Bennardos Homepage",
-  description: "My very own homepage yeah",
+  description: "Karols Website",
 };
 
 export default function Layout({ children }) {

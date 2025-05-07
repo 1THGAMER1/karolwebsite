@@ -9,6 +9,7 @@ import BuyButton from "@/app/components/buybutton.js";
 import Cartbutton from "@/app/components/cartbutton.js";
 import Shopnavbar from "@/app/components/shopnavbar";
 import Footer from "@/app/components/footer";
+import TextRotation from "@/app/components/textrotation";
 
 export default function HomePage() {
     const [loading, setLoading] = useState(true);  // Zustand für das Laden
@@ -36,12 +37,11 @@ export default function HomePage() {
            <Shopnavbar />
 
             {/* Hero Section */}
-            <section className="bg-cover bg-center h-[500px]" style={{ backgroundImage: 'url("/hero-image.jpg")' }}>
+            <section className="bg-cover bg-center h-[500px]" style={{/* backgroundImage: 'url("/hero-image.jpg")' */}}>
                 <div className="h-full bg-black bg-opacity-50 flex justify-center items-center">
-                    <h1 className="text-4xl text-white font-semibold text-center">Willkommen im Beispielshop!</h1>
+                    <h1 className="text-4xl text-white font-semibold text-center">Willkommen bei Karol&#39;s Shop!</h1>
                 </div>
             </section>
-
             {/* Featured Products */}
             <section className="container mx-auto py-16">
                 <h2 className="text-3xl text-center font-bold mb-12 text-gray-600">Vorgestellte Produkte</h2>
@@ -64,8 +64,10 @@ export default function HomePage() {
                                     width={400}
                                     height={400}
                                     className="w-full h-64 object-cover mb-4 rounded-lg" />
-                                <h3 className="text-xl font-semibold text-gray-400">{product.name}</h3>
-                                <p className="text-gray-600">{product.price}€</p>
+                                <div className="flex items-center justify-between">
+                                    <h3 className="text-xl font-semibold text-gray-400">{product.name}</h3>
+                                    <p className="text-gray-600 font-semibold">{product.price}€</p>
+                                </div>
                                 <Cartbutton productId = {product.id} />
                                 <BuyButton />
                             </div>

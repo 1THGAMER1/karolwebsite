@@ -31,3 +31,4 @@ export default function BuyButton() {
         </button>
     );
 }
+// TODO : Warenkorb wird nicht aktualisiert.

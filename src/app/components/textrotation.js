@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
-const woerter = ["Willkommen!", "Welcome!", "Benvenuto!", "¡Bienvenudo!", "いらっしゃいませ!", "欢迎!", "Welkom!", ]
+const woerter = ["Willkommen!", "Welcome!", "Benvenuto!", "¡Bienvenudo!", "いらっしゃいませ!", "Welkom!", ]
 
 export default function TextRotation() {
     const [index, setIndex] = useState(0);

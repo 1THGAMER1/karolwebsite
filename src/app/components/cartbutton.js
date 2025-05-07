@@ -3,11 +3,10 @@
 import { useState } from "react";
 
 export default function Cartbutton({ productId }) {
-    const [clicked, setClicked] = useState(false);  // Zustand für Klick
+    const [clicked, setClicked] = useState(false);
     const [quantity, setQuantity] = useState(1);    // Zustand für die Anzahl
-    const [addedToCart, setAddedToCart] = useState(false);  // Warenkorb hinzugefügt
+    const [addedToCart, setAddedToCart] = useState(false);
 
-    // Funktion zum klicken und für Animation
     const handleFirstClick = () => {
         setClicked(true);  // Button wird kleiner
     };
@@ -23,9 +22,9 @@ export default function Cartbutton({ productId }) {
         if (response.ok) {
             setAddedToCart(true);
         } else {
-            alert("Error creating cart");
+            alert("Fehler bei der Erstellung des Warenkorbs. Kontrolliere deine Eingabe");
         }
-        setClicked(false);     // Button wieder in den Ausgangszustand versetze
+        setClicked(false);
     };
 
     return (
@@ -38,8 +37,6 @@ export default function Cartbutton({ productId }) {
           ${clicked ? "transform scale-90" : ""}
         `}
             >
-                {/* TODO Umgehung der Warenkorb Kontrolle durch wiederholtes Anklicken || Zu fixen */}
-
                 {addedToCart ? "Hinzugefügt ✓" : clicked ? "Bestätigen" : "Dem Warenkorb hinzufügen"}
             </button>
 
