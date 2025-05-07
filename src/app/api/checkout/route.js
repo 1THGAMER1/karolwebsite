@@ -13,9 +13,9 @@ export default async function handler(req, res) {
     }
 
     try {
-        // Beginne die Transaktion
+        // Beginnt die Transaktion
         const order = await prisma.$transaction(async (prisma) => {
-            // 1. Bestellkopf (Bestellung) erstellen
+            // Bestellkopf
             const newOrder = await prisma.bestellung.create({
                 data: {
                     sessionid: sessionId,
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
                 },
             });
 
-            // 2. Bestellposten hinzufügen (Produkte aus dem Warenkorb)
+            //  Bestellposten (Produkte aus dem Warenkorb)
             const cartItems = await prisma.warenkorb.findMany({
                 where: { sessionid: sessionId },
                 include: {

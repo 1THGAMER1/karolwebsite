@@ -1,5 +1,35 @@
 import prisma from '@/lib/prisma';
 import { getSessionId } from '@/lib/session';
+import { NextResponse} from "next/server";
+
+export async function DELETE(request) {
+    try {
+        const sessionId = await getSessionId(request); // Session-ID aus Cookies holen
+        if (!sessionId) {
+            return NextResponse.json({ error: "Keine gültige Session ID" }, { status: 400 });
+        }
+
+        const body = await request.json();
+        const { productid } = body;
+
+        if (!productid) {
+            return NextResponse.json({ error: "Fehlende Produkt ID" }, { status: 400 });
+        }
+
+        // Lösche das Produkt aus dem Warenkorb
+        await prisma.warenkorb.deleteMany({
+            where: {
+                sessionid: sessionId,
+                productid: productid,
+            },
+        });
+
+        return NextResponse.json({ success: true });
+    } catch (error) {
+        console.error("Fehler im DELETE-Handler:", error);
+        return NextResponse.json({ error: "Interner Fehler" }, { status: 500 });
+    }
+}
 
 export async function POST(req) {
     try {
