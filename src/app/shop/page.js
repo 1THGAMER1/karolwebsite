@@ -36,9 +36,9 @@ export default function HomePage() {
            <Shopnavbar />
 
             {/* Hero Section */}
-            <section className="bg-cover bg-center h-[500px]" style={{/* backgroundImage: 'url("/hero-image.jpg")' */}}>
+            <section className="bg-cover bg-center h-[500px] pt-16" style={{/* backgroundImage: 'url("/hero-image.jpg")' */}}>
                 <div className="h-full bg-black bg-opacity-50 flex justify-center items-center">
-                    <h1 className="text-4xl text-white font-semibold text-center">Willkommen bei Karol&#39;s Shop!</h1>
+                    <h1 className="text-4xl text-white font-semibold text-center p-4">Willkommen bei Karol&#39;s Shop!</h1>
                 </div>
             </section>
             {/* Featured Products */}

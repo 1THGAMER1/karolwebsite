@@ -1,12 +1,12 @@
 import prisma from "@/lib/prisma";
-import Image from "next/image";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import BuyButton from "@/app/components/buybutton.js";
-import Cartbutton from "@/app/components/cartbutton.js";
+import ProductBigPicture from "./ProductBigPicture"; // Import the client component
 import Shopnavbar from "@/app/components/shopnavbar";
 import Footer from "@/app/components/footer";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import BuyButton from "@/app/components/buybutton";
+import Cartbutton from "@/app/components/cartbutton";
 
 export const dynamic = "force-dynamic";
 
@@ -15,21 +15,24 @@ export default async function ProductPage({ params }) {
     const productId = parseInt(id);
     if (isNaN(id) || !productId) {
         return (
-        <div> Fehler. Diese Seite existiert nicht. <Link href="/shop" className="cursor-pointer underline"> Hier geht&#39;s zurück zur Hauptseite!</Link></div>
+            <div> Fehler. Diese Seite existiert nicht. <Link href="/shop" className="cursor-pointer underline"> Hier geht&#39;s zurück zur Hauptseite!</Link></div>
         )
     }
     const product = await prisma.produkte.findUnique({
         where: { id: productId },
     });
 
-    if (!product) return <div className="flex-grow container mx-auto py-16">Dieses Produkt gibt es wahrscheinlich (noch) nicht!
-    <Link href="/shop" className="cursor-pointer underline"> Hier geht&#39;s zurück zur Hauptseite!</Link>
-    </div>;
+    if (!product) {
+        return (
+            <div className="flex-grow container mx-auto py-16">Dieses Produkt gibt es wahrscheinlich (noch) nicht!
+                <Link href="/shop" className="cursor-pointer underline"> Hier geht&#39;s zurück zur Hauptseite!</Link>
+            </div>
+        )
+    }
 
     return <ProductClient product={{ ...product, price: product.price.toNumber() }} />;
 }
 
-// ProductClient-Komponente in derselben Datei
 function ProductClient({ product }) {
     return (
         <div className="bg-gray-100 min-h-screen flex flex-col">
@@ -59,24 +62,19 @@ function ProductClient({ product }) {
                 </header>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
                     <div className="flex justify-center">
-                        <Image
-                            src={product.imgsrc}
-                            alt={product.name}
-                            width={250}
-                            height={250}
-                        />
+                        <ProductBigPicture product={product} />
                     </div>
                     <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
                         <p className="text-sm sm:text-base md:text-lg mb-4">{product.description}</p>
                         <p className="text-xl font-semibold">{product.price} €</p>
                     </div>
-                    <Cartbutton productId={product.id} />
-                    <BuyButton productId={product.id} />
+                    <Cartbutton product={product.id} />
+                    <BuyButton product={product.id} />
                 </div>
             </section>
             <Footer />
-            <Analytics/>
-            <SpeedInsights/>
+            <Analytics />
+            <SpeedInsights />
         </div>
     );
 }
