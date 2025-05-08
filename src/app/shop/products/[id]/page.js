@@ -68,8 +68,8 @@ function ProductClient({ product }) {
                         <p className="text-sm sm:text-base md:text-lg mb-4">{product.description}</p>
                         <p className="text-xl font-semibold">{product.price} €</p>
                     </div>
-                    <Cartbutton product={product.id} />
-                    <BuyButton product={product.id} />
+                    <Cartbutton productId={product.id} />
+                    <BuyButton productId={product.id} />
                 </div>
             </section>
             <Footer />
