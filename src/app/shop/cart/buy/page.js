@@ -1,6 +1,6 @@
 "use client"
 
-import '../../globals.css'
+import '../../../globals.css'
 import Shopnavbar from "@/app/components/shopnavbar";
 import CompleteButton from "@/app/components/abschicken";
 

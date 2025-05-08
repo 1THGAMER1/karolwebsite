@@ -10,7 +10,7 @@ import FinalBuyButton from "@/app/components/finalbuybutton";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getSessionIdFromCookies } from "@/lib/session-client";
-import Link from "next/link"; // sicherstellen, dass es korrekt importiert ist
+import Link from "next/link";
 
 export default function CartPage() {
     const [loading, setLoading] = useState(true);
@@ -160,7 +160,7 @@ export default function CartPage() {
                                             {item.product?.name || "Unbekannt"}
                                         </p>
                                         <p className="text-base text-gray-500">
-                                            Preis: {formatPrice(item.product?.price)} €
+                                            {formatPrice(item.product?.price)} €
                                         </p>
                                         <p className="text-base text-gray-500">Menge: {item.quantity}</p>
                                     </div>

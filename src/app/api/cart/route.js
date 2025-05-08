@@ -43,9 +43,8 @@ export async function POST(req) {
         if (isNaN(productId)) {
             return new Response(JSON.stringify({ error: 'Ungültige Produkt ID' }), { status: 400 });
         }
-        // TODO Bei Input einer negativen Zahl wird ein Artikel hinzugefügt. Eine Fehlermeldung würde hier mehr Sinn machen
         const quantity = Math.max(parseInt(body.quantity));
-        if (quantity <= 0) {
+        if (isNaN(quantity) || quantity <= 0) {
             return new Response(JSON.stringify({ error: 'Die Menge muss mindestens 1 betragen' }), { status: 400 });
         }
 

@@ -9,7 +9,6 @@ import BuyButton from "@/app/components/buybutton.js";
 import Cartbutton from "@/app/components/cartbutton.js";
 import Shopnavbar from "@/app/components/shopnavbar";
 import Footer from "@/app/components/footer";
-import TextRotation from "@/app/components/textrotation";
 
 export default function HomePage() {
     const [loading, setLoading] = useState(true);  // Zustand für das Laden
@@ -44,7 +43,7 @@ export default function HomePage() {
             </section>
             {/* Featured Products */}
             <section className="container mx-auto py-16">
-                <h2 className="text-3xl text-center font-bold mb-12 text-gray-600">Vorgestellte Produkte</h2>
+                <h2 className="text-3xl text-center font-bold mb-12 text-gray-700">Vorgestellte Produkte</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12">
                     {/* Wenn Daten noch geladen werden, zeige das Skeleton */}
                     {loading
@@ -58,22 +57,25 @@ export default function HomePage() {
                         : // Wenn Daten geladen sind, zeige die echten Produkte
                         products.map((product) => (
                             <div key={product.id} className="bg-white p-6 rounded-lg shadow-lg">
-                                <Image
-                                    src={product.imgsrc}
-                                    alt={product.name}
-                                    width={400}
-                                    height={400}
-                                    className="w-full h-64 object-cover mb-4 rounded-lg" />
+                                <Link href={`/shop/products/${product.id}`}>
+                                    <Image
+                                        src={product.imgsrc}
+                                        alt={product.name}
+                                        width={400}
+                                        height={400}
+                                        className="w-full h-64 object-cover mb-4 rounded-lg" />
+                                </Link>
                                 <div className="flex items-center justify-between">
-                                    <h3 className="text-xl font-semibold text-gray-400">{product.name}</h3>
-                                    <p className="text-gray-600 font-semibold">{product.price}€</p>
+                                    <Link href={`/shop/products/${product.id}`}>
+                                        <h3 className="text-2xl font-semibold text-gray-400">{product.name}</h3>
+                                    </Link>
+                                    <p className="text-xl text-gray-600 font-semibold">{product.price}€</p>
                                 </div>
                                 <Cartbutton productId = {product.id} />
-                                <BuyButton />
+                                <BuyButton productId = {product.id} />
                             </div>
                         ))}
                 </div>
-                 <h2 className="py-16 text-3xl text-center font-bold mb-12 text-gray-600"> Auf Basis deiner bisherigen Suchanfragen </h2>
             </section>
             <Footer />
             <Analytics/>

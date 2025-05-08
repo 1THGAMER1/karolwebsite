@@ -21,7 +21,7 @@ const youngserif = Young_Serif({
 })
 
 export const metadata = {
-  title: "Karol Bennardos Homepage",
+  title: "Karol Bennardo's Homepage",
   description: "Karols Website",
 };
 
