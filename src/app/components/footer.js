@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container mx-auto text-center">
                 <p>&copy; 2025 Karol&#39;s Shop. Alle Rechte vorbehalten.</p>
                 <div className="flex justify-center space-x-4 mt-4">
-                    <Link href="#">Facebook</Link>
+                    <Link href="https://github.com/1THGAMER1/karolwebsite/">Github</Link>
                     <Link href="https://x.com/_THGAMER">Twitter</Link>
                     <Link href="#">Instagram</Link>
                 </div>

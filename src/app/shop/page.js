@@ -63,7 +63,7 @@ export default function HomePage() {
                                         alt={product.name}
                                         width={400}
                                         height={400}
-                                        className="w-full h-64 object-cover mb-4 rounded-lg" />
+                                        className="w-full h-64 object-contain mb-4 rounded-lg" />
                                 </Link>
                                 <div className="flex items-center justify-between">
                                     <Link href={`/shop/products/${product.id}`}>

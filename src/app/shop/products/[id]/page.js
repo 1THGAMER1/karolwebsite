@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import ProductBigPicture from "./ProductBigPicture"; // Import the client component
+import ProductBigPicture from "@/app/components/ProductBigPicture";
 import Shopnavbar from "@/app/components/shopnavbar";
 import Footer from "@/app/components/footer";
 import Link from "next/link";
@@ -62,7 +62,7 @@ function ProductClient({ product }) {
                 </header>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 px-4">
                     <div className="flex justify-center">
-                        <ProductBigPicture product={product} />
+                        <ProductBigPicture product={product} width={250} height={250} />
                     </div>
                     <div className="col-span-1 sm:col-span-2 md:col-span-3 lg:col-span-1">
                         <p className="text-sm sm:text-base md:text-lg mb-4">{product.description}</p>
@@ -78,3 +78,4 @@ function ProductClient({ product }) {
         </div>
     );
 }
+//TODO Optional einen Weg finden wie das Bild beim hovern nicht unscharf wird. Eine vorherige Ladung von größeren Größen wurde schon probiert.

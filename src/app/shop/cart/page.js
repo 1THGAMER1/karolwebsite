@@ -11,6 +11,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getSessionIdFromCookies } from "@/lib/session-client";
 import Link from "next/link";
+import ProductBigPicture from "@/app/components/ProductBigPicture";
 
 export default function CartPage() {
     const [loading, setLoading] = useState(true);
@@ -143,22 +144,14 @@ export default function CartPage() {
                                     transition={{ duration: 0.15 }}
                                 >
                                     <div className="w-full sm:w-auto flex justify-center sm:block">
-                                        {item.product?.imgsrc ? (
-                                            <Image
-                                                src={item.product.imgsrc}
-                                                alt={item.product.name}
-                                                width={120}
-                                                height={120}
-                                                className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-lg"
-                                            />
-                                        ) : (
-                                            <div className="w-24 h-24 bg-gray-200 rounded-lg"></div>
-                                        )}
+                                        <ProductBigPicture product={item.product} width={120} height={120} />
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-lg sm:text-xl font-semibold text-gray-700">
-                                            {item.product?.name || "Unbekannt"}
-                                        </p>
+                                        <Link href={`/shop/products/${item.product.id}`}>
+                                            <p className="text-lg sm:text-xl font-semibold text-gray-700">
+                                                {item.product?.name || "Unbekannt"}
+                                            </p>
+                                        </Link>
                                         <p className="text-base text-gray-500">
                                             {formatPrice(item.product?.price)} €
                                         </p>
