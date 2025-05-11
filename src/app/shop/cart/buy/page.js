@@ -8,8 +8,8 @@ export default function BuyPage(){
 
     return(
         <div className="bg-gradient-to-b from-gray-900 to-gray-950 min-h-screen flex flex-col">
-            <section className="flex-grow container mx-auto py-16">
             <Shopnavbar />
+            <section className="flex-grow container mx-auto py-16">
                 <header className="text-white items-center flex justify-center font-semibold mb-auto min-h-[80px]">
             <h1> Bestellung überprüfen </h1>
                     </header>

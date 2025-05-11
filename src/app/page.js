@@ -16,8 +16,11 @@ export default function Home(){
                 </h1>
             </div>
             <div className="welcome-text text-center flex flex-col items-center justify-center text-white">
-                <p> This is Karols Website.</p>
-                <Link href="/about">Go to my About Me page</Link>
+                <p> Das is Karol&#39;s Website.</p>
+                <Link href="/about" className="underline">Zu meiner About Me Seite</Link>
+                <Link href="/shop" className="underline">Zu meinem Beispielshop</Link>
+                <Link href="/portfolio" className="underline">Zu meinem Portfolio</Link>
+
                 <Analytics/>
                 <SpeedInsights/>
             </div>

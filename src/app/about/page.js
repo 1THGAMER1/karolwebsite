@@ -7,8 +7,7 @@ export default function Page(){
     return(
         <div>
             <Navbar />
-            <h1> Welcome to my About Page </h1>
-            <p> This is my Webpage</p>
+            <h1> Welcome in meiner About Seite </h1>
             <Analytics/>
             <SpeedInsights/>
         </div>
